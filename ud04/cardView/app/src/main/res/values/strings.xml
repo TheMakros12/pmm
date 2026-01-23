@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">cardView</string>
+    <string name="contDecripImg">Descripción de la foto</string>
+    <string name="txt1">Usuario</string>
+    <string name="txt2">Texto Usuario 2</string>
+    <string name="txtBtn1">Botón 1</string>
+    <string name="txtBtn2">Botón 2</string>
+    <string name="contDescrp">Imagen</string>
+    <string name="tittleProducto">Sudadera</string>
+    <string name="txtDesc">Chaqueta de Levis</string>
+    <string name="tittleLevis">Chaqueta</string>
+    <string name="precio1">100€</string>
+</resources>

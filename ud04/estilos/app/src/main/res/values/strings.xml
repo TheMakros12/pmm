@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">estilos</string>
+    <string name="txtMain">El Menu del Héroe</string>
+    <string name="btnJugar">JUGAR</string>
+    <string name="btnOpciones">OPCIONES</string>
+    <string name="btnSalir">SALIR</string>
+    <string name="btnRanking">RANKING</string>
+    <string name="editText">Nombre</string>
+</resources>

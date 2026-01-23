@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">spinner</string>
+    <string name="perfiles">Gestión de Perfiles</string>
+
+    <string-array name="decripciones_spinner">
+        <item>Acceso total</item>
+        <item>Acceso parcial</item>
+        <item>Solo lectura</item>
+    </string-array>
+</resources>

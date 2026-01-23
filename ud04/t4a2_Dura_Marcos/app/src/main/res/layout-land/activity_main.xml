@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/main"
+    tools:context=".activities.MainActivity"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottomAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:menuAlignmentMode="start"
+        style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
+        />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/txtContDescrpFab"
+        android:src="@drawable/icon_banco_24"
+        app:layout_anchor="@id/bottomAppBar"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:gravity="center_vertical"
+        >
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="16dp"
+            >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                >
+
+                <ImageView
+                    android:id="@+id/imgAvatar"
+                    android:layout_width="88dp"
+                    android:layout_height="88dp"
+                    android:src="@android:mipmap/sym_def_app_icon"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:contentDescription="@string/txtContDescrpImgAvatar"
+                    />
+
+                <TextView
+                    android:id="@+id/tvWelcome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/welcome"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@id/imgAvatar"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    />
+
+                <TextView
+                    android:id="@+id/tvWelcomeUsuario"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toEndOf="@id/imgAvatar"
+                    app:layout_constraintTop_toBottomOf="@id/tvWelcome"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:alignmentMode="alignMargins"
+            android:columnCount="2"
+            android:rowCount="4"
+            android:rowOrderPreserved="false"
+            android:useDefaultMargins="true"
+            >
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnPosicionGlobal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:text="@string/txtBtnPosicionGlobal"
+                app:icon="@drawable/ic_posicion_global"
+                style="@style/Botones_App"
+                />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnMovimientos"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:text="@string/txtBtnMovimientos"
+                app:icon="@drawable/ic_movimientos"
+                style="@style/Botones_App"
+                />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnTransferencias"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:text="@string/txtBtnTransferencias"
+                app:icon="@drawable/ic_transferencias"
+                style="@style/Botones_App"
+                />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCambiarContrasenya"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:text="@string/txtBtnCambiarContrasenya"
+                app:icon="@drawable/ic_cambiar_contrasenya"
+                style="@style/Botones_App"
+                />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnPromociones"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:text="@string/txtBtnPromociones"
+                app:icon="@drawable/ic_promociones"
+                style="@style/Botones_App"
+                />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCajeros"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:text="@string/txtBtnCajeros"
+                app:icon="@drawable/ic_cajeros"
+                style="@style/Botones_App"
+                />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSalir"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_columnSpan="2"
+                android:text="@string/txtBtnSalir"
+                app:icon="@drawable/ic_salir"
+                style="@style/Botones_App"
+                />
+
+        </GridLayout>
+
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

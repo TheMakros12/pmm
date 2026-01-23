@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">recursos</string>
+    <string name="series_tittle">La Corona</string>
+    <string name="name_psinopsis">Este drama sigue la policitca Este drama sigue la policitca Este drama sigue la policitca
+    Este drama sigue la policitca Este drama sigue la policitca Este drama sigue la policitca Este drama sigue la policitca
+    Este drama sigue la policitca Este drama sigue la policitca </string>
+
+    <string name="btnWatchNow">Mirar Ahora</string>
+    <string name="btnAddToList">Añadir a la lista</string>
+    <string name="relatedSeriesTittle">Series Relacionadas</string>
+    <string name="contentDescrp">Poster de la Serie</string>
+</resources>

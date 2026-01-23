@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group>
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home"
+            android:title="@string/txtNavDrawerHome" />
+        <item
+            android:id="@+id/nav_posicion_global"
+            android:icon="@drawable/ic_posicion_global"
+            android:title="@string/txtNavDrawerPosicionGlobal" />
+        <item
+            android:id="@+id/nav_movimientos"
+            android:icon="@drawable/ic_movimientos"
+            android:title="@string/txtNavDrawerMovimientos" />
+        <item
+            android:id="@+id/nav_transferencias"
+            android:icon="@drawable/ic_transferencias"
+            android:title="@string/txtNavDrawerTransferencias" />
+        <item
+            android:id="@+id/nav_cambiar_contrasenya"
+            android:icon="@drawable/ic_cambiar_contrasenya"
+            android:title="@string/txtNavDrawerCambiarContrasenya" />
+        <item
+            android:id="@+id/nav_promociones"
+            android:icon="@drawable/ic_promociones"
+            android:title="@string/txtNavDrawerPromociones" />
+        <item
+            android:id="@+id/nav_cajeros"
+            android:icon="@drawable/ic_cajeros"
+            android:title="@string/txtNavDrawerCambiarContrasenya" />
+        <item
+            android:id="@+id/nav_configuracion"
+            android:icon="@drawable/ic_configuracion"
+            android:title="@string/txtNavDrawerConfiguracion" />
+    </group>
+
+</menu>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/cardview_shadow_start_color"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            >
+
+            <ImageView
+                android:id="@+id/idImg"
+                android:layout_width="@dimen/carViewImg"
+                android:layout_height="@dimen/carViewImg"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:src="@drawable/levis"
+                android:contentDescription="@string/contDescrp"
+                />
+
+            <TextView
+                android:id="@+id/txt1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/idImg"
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="@string/tittleLevis"
+                android:layout_marginStart="10dp"
+                android:textStyle="bold"
+                android:textSize="26sp"
+                />
+
+            <TextView
+                android:id="@+id/txt2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/idImg"
+                app:layout_constraintTop_toBottomOf="@id/txt1"
+                android:text="@string/txtDesc"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:textSize="20sp"
+                />
+
+            <TextView
+                android:id="@+id/txt3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/idImg"
+                app:layout_constraintTop_toBottomOf="@id/txt2"
+                android:text="@string/precio1"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:textSize="20sp"
+                />
+
+            <ImageButton
+                android:id="@+id/btnMeGusta"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/idImg"
+                android:src="@drawable/like"
+                android:contentDescription="Hola"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/cardview_shadow_start_color"
+        android:layout_marginTop="10dp"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            >
+
+            <ImageView
+                android:id="@+id/idImg2"
+                android:layout_width="@dimen/carViewImg"
+                android:layout_height="@dimen/carViewImg"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:src="@drawable/sudadera"
+                android:contentDescription="@string/contDescrp"
+                />
+
+            <TextView
+                android:id="@+id/txt1_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/idImg2"
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="@string/tittleProducto"
+                android:layout_marginStart="10dp"
+                android:textStyle="bold"
+                android:textSize="26sp"
+                />
+
+            <TextView
+                android:id="@+id/txt2_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/idImg2"
+                app:layout_constraintTop_toBottomOf="@id/txt1_1"
+                android:text="@string/txtDesc"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:textSize="20sp"
+                />
+
+            <TextView
+                android:id="@+id/txt3_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/idImg2"
+                app:layout_constraintTop_toBottomOf="@id/txt2_2"
+                android:text="@string/precio1"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:textSize="20sp"
+                />
+
+            <ImageButton
+                android:id="@+id/btnMeGusta2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:src="@drawable/like"
+                app:layout_constraintTop_toBottomOf="@id/idImg2"
+                android:contentDescription="Hola"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</LinearLayout>

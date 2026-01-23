@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="paises">
+        <item>España</item>
+        <item>Estados Unidos</item>
+        <item>Groenlandia</item>
+        <item>India</item>
+        <item>Alemania</item>
+    </string-array>
+
+    <string-array name="codigopaises">
+        <item>ESP</item>
+        <item>EE.UU</item>
+        <item>GR</item>
+        <item>IND</item>
+        <item>ALE</item>
+    </string-array>
+
+</resources>

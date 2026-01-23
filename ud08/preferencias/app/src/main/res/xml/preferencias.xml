@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <SwitchPreferenceCompat
+        android:key="musica"
+        android:summaryOff="No escuchar música"
+        android:summaryOn="Escuchar música"
+        android:title="Música" />
+
+    <EditTextPreference
+        android:key="nick"
+        android:title="Nick por defecto"
+        android:summary="Introduzca su nick por defecto"
+        android:dialogTitle="Nick por defecto" />
+
+    <ListPreference
+        android:key="pais"
+        android:title="Pais de Residencia"
+        android:dialogTitle="Indica tu pais de residencia"
+        android:entries="@array/paises"
+        app:entryValues="@array/codigopaises"/>
+
+    <PreferenceCategory
+        android:title="Apariencia" />
+
+    <SwitchPreferenceCompat
+        android:key="modooscuro"
+        android:title="Modo Oscuro"
+        android:summary="Activar el modo oscuro"
+        android:summaryOn="Modo Oscuro Activado"
+        android:summaryOff="Modo Oscuro Desactivado"
+        android:defaultValue="false" />
+
+</PreferenceScreen>

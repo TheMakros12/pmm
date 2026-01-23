@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">lotties</string>
+    <string name="txtBtnLanzar">Lanzar</string>
+    <string name="txtBtnNormal">vel. x1</string>
+    <string name="txtBtnVelocidadRapida">vel. x2</string>
+    <string name="txtBtnVelocidadInversa">inversa</string>
+    <string name="txtBtnReset">Resetear Animación</string>
+    <string name="txtBtnDescargar">Descargar Archivo</string>
+    <string name="txtFabActionPrincipal">Add Source</string>
+</resources>

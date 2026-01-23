@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/txtMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txtMain"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/imgTodosLosDiasTodoElDia"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"/>
+
+    <ImageView
+        android:id="@+id/imgTodosLosDiasTodoElDia"
+        android:layout_width="@dimen/img"
+        android:layout_height="@dimen/img"
+        android:src="@drawable/todos_los_dias_todo_el_dia"
+        android:contentDescription="@string/todosLosDiasTodoElDia"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtMain"
+        app:layout_constraintEnd_toStartOf="@id/imgBuenasNoches"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="30dp"/>
+
+    <ImageView
+        android:id="@+id/imgBuenasNoches"
+        android:layout_width="@dimen/img"
+        android:layout_height="@dimen/img"
+        android:src="@drawable/buenas_noches"
+        android:contentDescription="@string/buenasNoches"
+        app:layout_constraintStart_toEndOf="@id/imgTodosLosDiasTodoElDia"
+        app:layout_constraintTop_toBottomOf="@id/txtMain"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="30dp"/>
+
+    <ImageView
+        android:id="@+id/imgMeMuevoConDios"
+        android:layout_width="@dimen/img"
+        android:layout_height="@dimen/img"
+        android:src="@drawable/me_muevo_con_dios"
+        android:contentDescription="@string/meMuevoConDios"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgTodosLosDiasTodoElDia"
+        app:layout_constraintEnd_toStartOf="@id/imgSayonara"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="30dp"/>
+
+    <ImageView
+        android:id="@+id/imgSayonara"
+        android:layout_width="@dimen/img"
+        android:layout_height="@dimen/img"
+        android:src="@drawable/sayonara"
+        android:contentDescription="@string/sayonara"
+        app:layout_constraintStart_toEndOf="@id/imgTodosLosDiasTodoElDia"
+        app:layout_constraintTop_toBottomOf="@id/imgBuenasNoches"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="30dp"/>
+
+    <ImageView
+        android:id="@+id/imgData"
+        android:layout_width="@dimen/img"
+        android:layout_height="@dimen/img"
+        android:src="@drawable/data"
+        android:contentDescription="@string/data"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgMeMuevoConDios"
+        app:layout_constraintEnd_toStartOf="@id/imgYHLQMDLG"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="30dp"/>
+
+    <ImageView
+        android:id="@+id/imgYHLQMDLG"
+        android:layout_width="@dimen/img"
+        android:layout_height="@dimen/img"
+        android:src="@drawable/yhlqmdlg"
+        android:contentDescription="@string/YHLQMDLG"
+        app:layout_constraintStart_toEndOf="@id/imgData"
+        app:layout_constraintTop_toBottomOf="@id/imgSayonara"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="30dp"/>
+
+    <ImageView
+        android:id="@+id/imgPortateBien"
+        android:layout_width="@dimen/img"
+        android:layout_height="@dimen/img"
+        android:src="@drawable/portate_bien"
+        android:contentDescription="@string/portateBien"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgData"
+        app:layout_constraintEnd_toStartOf="@id/imgNatsukashiiYoru"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="30dp"/>
+
+    <ImageView
+        android:id="@+id/imgNatsukashiiYoru"
+        android:layout_width="@dimen/img"
+        android:layout_height="@dimen/img"
+        android:src="@drawable/natsukashii_yoru"
+        android:contentDescription="@string/natsukashiiYoru"
+        app:layout_constraintStart_toEndOf="@id/imgPortateBien"
+        app:layout_constraintTop_toBottomOf="@id/imgYHLQMDLG"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="30dp"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,75 @@
+@Composable
+fun DialogExample() {
+    val context = LocalContext.current
+    var showDialog by remember { mutableStateOf(false) }
+
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Button(onClick = { showDialog = true }) {
+            Text("Show Dialog")
+        }
+
+        if (showDialog) {
+            Dialog(onDismissRequest = { showDialog = false }) {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth(0.85f)
+                        .background(
+                            color = Color(0xFFE3F2FD),
+                            shape = RoundedCornerShape(16.dp)
+                        )
+                        .padding(20.dp)
+                ) {
+                    Column(
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ) {
+                        Text(
+                            text = "Confirm Action",
+                            fontSize = 20.sp,
+                            fontWeight = FontWeight.Bold
+                        )
+
+                        Spacer(modifier = Modifier.height(12.dp))
+
+                        Text(
+                            text = "Are you sure you want to perform this action?",
+                            fontSize = 16.sp,
+                            textAlign = TextAlign.Center
+                        )
+
+                        Spacer(modifier = Modifier.height(24.dp))
+
+                        Row(
+                            horizontalArrangement = Arrangement.SpaceBetween,
+                            modifier = Modifier.fillMaxWidth()
+                        ) {
+                            TextButton(
+                                onClick = {
+                                    showDialog = false
+                                }
+                            ) {
+                                Text("Cancel")
+                            }
+
+                            Button(
+                                onClick = {
+                                    showDialog = false
+                                    Toast.makeText(
+                                        context,
+                                        "Action Confirmed",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                }
+                            ) {
+                                Text("Confirm")
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

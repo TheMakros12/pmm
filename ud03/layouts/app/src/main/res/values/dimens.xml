@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="amarillo">250dp</dimen>
+    <dimen name="beig">120dp</dimen>
+    <dimen name="rosa">150dp</dimen>
+    <dimen name="azul_oscuro">180dp</dimen>
+
+</resources>

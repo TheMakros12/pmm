@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.MainActivity">
+
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottomAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_gravity="bottom"
+        app:menuAlignmentMode="start"
+        style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
+        />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/txtContDescrpFab"
+        android:src="@drawable/icon_banco_24"
+        app:layout_anchor="@id/bottomAppBar"
+        />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp"
+        />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:paddingTop="16dp"
+            android:paddingEnd="16dp"
+            >
+
+            <ImageView
+                android:id="@+id/imgAvatar"
+                android:layout_width="88dp"
+                android:layout_height="88dp"
+                android:src="@android:mipmap/sym_def_app_icon"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:contentDescription="@string/txtContDescrpImgAvatar"
+                />
+
+            <TextView
+                android:id="@+id/tvWelcome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/welcome"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/imgAvatar"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                />
+
+            <TextView
+                android:id="@+id/tvWelcomeUsuario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textStyle="normal"
+                app:layout_constraintStart_toEndOf="@id/imgAvatar"
+                app:layout_constraintTop_toBottomOf="@id/tvWelcome"
+                app:layout_constraintEnd_toEndOf="parent"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="150dp"
+        android:padding="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        >
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnPosicionGlobal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/txtBtnPosicionGlobal"
+            app:icon="@drawable/ic_posicion_global"
+            style="@style/Botones_App"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnMovimientos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/txtBtnMovimientos"
+            app:icon="@drawable/ic_movimientos"
+            style="@style/Botones_App"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnTransferencias"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/txtBtnTransferencias"
+            app:icon="@drawable/ic_transferencias"
+            style="@style/Botones_App"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCambiarContrasenya"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/txtBtnCambiarContrasenya"
+            app:icon="@drawable/ic_cambiar_contrasenya"
+            style="@style/Botones_App"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnPromociones"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/txtBtnPromociones"
+            app:icon="@drawable/ic_promociones"
+            style="@style/Botones_App"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCajeros"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/txtBtnCajeros"
+            app:icon="@drawable/ic_cajeros"
+            style="@style/Botones_App"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSalir"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/txtBtnSalir"
+            app:icon="@drawable/ic_salir"
+            style="@style/Botones_App"
+            />
+
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

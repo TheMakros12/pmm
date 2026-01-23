@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.MainActivity"
+    android:padding="10dp">
+
+    <ImageView
+        android:id="@+id/imglaliga"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/laliga"
+        android:contentDescription="@string/txtContDescp"
+        android:layout_marginTop="20dp"
+        />
+
+    <ImageView
+        android:id="@+id/madrid"
+        android:layout_width="@dimen/imgEquipo"
+        android:layout_height="@dimen/imgEquipo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imglaliga"
+        app:layout_constraintEnd_toStartOf="@id/barcelona"
+        android:src="@drawable/madrid"
+        android:contentDescription="@string/txtContDescp"
+        android:layout_marginTop="10dp"
+        />
+
+    <ImageView
+        android:id="@+id/barcelona"
+        android:layout_width="@dimen/imgEquipo"
+        android:layout_height="@dimen/imgEquipo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imglaliga"
+        app:layout_constraintStart_toEndOf="@id/madrid"
+        android:src="@drawable/barcelona"
+        android:contentDescription="@string/txtContDescp"
+        android:layout_marginTop="10dp"
+        />
+
+    <ImageView
+        android:id="@+id/valencia"
+        android:layout_width="@dimen/imgEquipo"
+        android:layout_height="@dimen/imgEquipo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/madrid"
+        app:layout_constraintEnd_toStartOf="@id/barcelona"
+        android:src="@drawable/valencia"
+        android:contentDescription="@string/txtContDescp"
+        android:layout_marginTop="10dp"
+        />
+
+    <ImageView
+        android:id="@+id/atleti"
+        android:layout_width="@dimen/imgEquipo"
+        android:layout_height="@dimen/imgEquipo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/barcelona"
+        app:layout_constraintStart_toEndOf="@id/madrid"
+        android:src="@drawable/atletico"
+        android:contentDescription="@string/txtContDescp"
+        android:layout_marginTop="10dp"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

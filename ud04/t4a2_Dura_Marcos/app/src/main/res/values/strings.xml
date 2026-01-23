@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">t4a2_Dura_Marcos</string>
+    <string name="txtTvWelcome">Bienvenid@ a mi banco</string>
+    <string name="txtBtnEntrar">ENTRAR</string>
+    <string name="txtTvLogin">Inciar Sesión</string>
+    <string name="hintUsuario">Introduce el Usuario</string>
+    <string name="required">Obligatorio!!!</string>
+    <string name="hintContrasenya">Introduce Contraseña</string>
+    <string name="txtBtnSalir">SALIR</string>
+    <string name="txtContDescrpImgAvatar">Imagen del Avatar</string>
+    <string name="welcome">Bienvenid@</string>
+    <string name="txtContDescrpFab">FAB</string>
+    <string name="txtBtnPosicionGlobal">POSICIÓN GLOBAL</string>
+    <string name="txtBtnMovimientos">MOVIMIENTOS</string>
+    <string name="txtBtnTransferencias">TRANSFERENCIAS</string>
+    <string name="txtBtnCambiarContrasenya">CAMBIAR CONTRASEÑA</string>
+    <string name="txtBtnPromociones">PROMOCIONES</string>
+    <string name="txtBtnCajeros">CAJEROS</string>
+</resources>

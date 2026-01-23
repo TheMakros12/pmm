@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">listaEventos</string>
+    <string name="txtEtTituloEvento">Título (obligatorio!)</string>
+    <string name="txtEtDescripcionEvento">Descripción (opcional)</string>
+    <string name="txtTvListaEventos">Listado de Eventos</string>
+    <string name="txtBtnGuardar">Guardar Evento</string>
+    <string name="txtFechaEvento">Fecha/Hora (opcional)</string>
+    <string name="txtTvTituloEvento">Título Evento</string>
+    <string name="txtTvFechaEvento">DD/MM/AAAA</string>
+    <string name="txtBtnEliminar">Eliminar</string>
+</resources>

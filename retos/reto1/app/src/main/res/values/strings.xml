@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">reto1</string>
+    <string name="txtContDescripVinted">Logo de Vinted</string>
+    <string name="txtHintUser">Usuario</string>
+    <string name="txtHintPassw">Contraseña</string>
+    <string name="txtBtnLogin">Iniciar Sesión</string>
+    <string name="menuAdminBuscar">Buscar</string>
+    <string name="menuAdminPerfil">Perfil</string>
+    <string name="menuAdminUsuarios">Usuarios</string>
+    <string name="contDescImg">Imagen de producto</string>
+</resources>

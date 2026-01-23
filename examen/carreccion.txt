@@ -1,0 +1,23 @@
+Fragment para cambiar la imagen en el MainActivity:
+
+class EventImageFragment {
+
+	private lateinit var…
+
+	onCreateView() {
+		binding = FragmentEventImageBinding.inflate(inflater, container, false)
+		return binding.root
+	}
+
+	fun updateImage(imageRes:Int) {
+		binding.ivCartelGrande.setImageResource(imageRes)
+	}
+
+}
+
+
+
+
+
+
+

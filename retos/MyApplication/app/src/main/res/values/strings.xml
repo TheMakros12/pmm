@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">reto3_Dura_Marcos</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="txtContDescp">Imagen de la Liga</string>
+</resources>

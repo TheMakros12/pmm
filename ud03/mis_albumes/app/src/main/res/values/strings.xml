@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">mis_albumes</string>
+    <string name="txtMain">MIS ÁLBUMES</string>
+    <string name="todosLosDiasTodoElDia">Todos Los Dias Todo El Dia</string>
+    <string name="buenasNoches">Buenas noches</string>
+    <string name="meMuevoConDios">Me Muevo Con Dios</string>
+    <string name="sayonara">Sayonara</string>
+    <string name="data">Data</string>
+    <string name="YHLQMDLG">Yo Hago Lo Que Me De La Gana</string>
+    <string name="portateBien">Pórtate Bien</string>
+    <string name="natsukashiiYoru">Natsukashii Yoru</string>
+    <string name="idAlbum">ID Álbum</string>
+    <string name="tituloAlbum">Título Álbum</string>
+    <string name="artistaAlbum">Artista Álbum</string>
+    <string name="anyoAlbum">Año Álbum</string>
+    <string name="duracionAlbum">Duración Álbum</string>
+</resources>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity"
+    android:padding="30dp">
+
+    <ImageView
+        android:id="@+id/imgSpotify"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/spotify"
+        android:contentDescription="@string/contDescrpImgSpotify"
+        />
+
+    <EditText
+        android:id="@+id/etUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imgSpotify"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:hint="@string/hintEtUser"
+        android:inputType="text"
+        android:autofillHints="name"
+        android:layout_marginTop="15dp"
+        />
+
+    <EditText
+        android:id="@+id/etPasswd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etUser"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:hint="@string/hintEtPasswd"
+        android:inputType="textPassword"
+        android:autofillHints="password"
+        android:layout_marginTop="15dp"
+        />
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etPasswd"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="15dp"
+        android:backgroundTint="@color/spotify"
+        android:text="@string/txtBtnLogin"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

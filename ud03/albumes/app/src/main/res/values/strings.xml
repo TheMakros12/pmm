@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">albumes</string>
+    <string name="album_aitana">Album Aitana</string>
+    <string name="album_dani_fernandez">Album Dani Fernandez</string>
+    <string name="album_rauw_alejandro">Album Rauw Alejandro</string>
+    <string name="album_sebastian_yatra">Album Sebastian Yatra</string>
+    <string name="nombre_album">Nombre Album</string>
+    <string name="id_album">Id Album</string>
+    <string name="autor_album">Autor Album</string>
+    <string name="anyo_album">Año Album</string>
+    <string name="duracion_album">Duracion Album</string>
+    <string name="albumes">ALBUMES</string>
+</resources>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    android:padding="50dp"
+    >
+
+    <EditText
+        android:id="@+id/edCorreo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Escribe un correo..."
+        android:inputType="text"
+        />
+
+    <Button
+        android:id="@+id/btnGuardar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Guardar email"
+        />
+
+    <Button
+        android:id="@+id/btnRecuperar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Recuperar email"
+        />
+
+    <TextView
+        android:id="@+id/tvEmailRecuperado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sin valor"
+        android:gravity="center"
+        android:textSize="20sp"
+        />
+
+    <Button
+        android:id="@+id/btnPreferencias"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Preferencias"
+        />
+
+    <Button
+        android:id="@+id/btnMostrarPreferencias"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mostrar Preferencias"
+        />
+
+</LinearLayout>

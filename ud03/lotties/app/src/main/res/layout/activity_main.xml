@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/vistaAnimacionCirculo"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:lottie_autoPlay="false"
+        app:lottie_loop="false"
+        app:lottie_rawRes="@raw/rocket_launch"
+        />
+
+    <Button
+        android:id="@+id/btnLanzar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txtBtnLanzar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/vistaAnimacionCirculo"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <LinearLayout
+        android:id="@+id/layoutControlesAvanzados"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnLanzar"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnVelocidadNormal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txtBtnNormal"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_marginStart="8dp"
+                />
+
+            <Button
+                android:id="@+id/btnVelocidadRapida"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txtBtnVelocidadRapida"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_marginStart="8dp"
+                />
+
+            <Button
+                android:id="@+id/btnValocidadInversa"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txtBtnVelocidadInversa"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_marginStart="8dp"
+                />
+
+        </LinearLayout>
+
+        <SeekBar
+            android:id="@+id/seekbarProgreso"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            />
+
+        <Button
+            android:id="@+id/btnReset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/txtBtnReset"
+            />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/separador"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/layoutControlesAvanzados"
+        />
+
+    <Button
+        android:id="@+id/btnDescargar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/separador"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/txtBtnDescargar"
+        />
+
+    <FrameLayout
+        android:id="@+id/layoutDescarga"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnDescargar"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/vistaAnimacionCargango"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/puntos_loading"
+            android:visibility="gone"
+            />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/vistaAnimacionExito"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/puntos_success"
+
+            android:visibility="gone"
+            />
+
+    </FrameLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAccionPrincipal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:contentDescription="@string/txtFabActionPrincipal"
+        android:src="@drawable/mobile_phone"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

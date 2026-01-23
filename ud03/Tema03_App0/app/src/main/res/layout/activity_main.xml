@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:padding="12dp">
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="vertical">
+
+       <ImageView
+           android:id="@+id/imgParque"
+           android:layout_width="wrap_content"
+           android:layout_height="match_parent"
+           android:src="@drawable/app_img"
+           android:scaleType="centerCrop"
+           android:contentDescription="@string/contentDescriptionImgParque"
+           android:padding="12dp"/>
+
+       <Space
+           android:layout_width="match_parent"
+           android:layout_height="12dp"/>
+
+       <EditText
+           android:id="@+id/txtNombre"
+           android:layout_width="match_parent"
+           android:layout_height="48dp"
+           android:hint="@string/hintNombreParque"
+           android:inputType="textPersonName"
+           android:padding="12dp"
+           tools:ignore="Autofill" />
+
+       <View
+           android:layout_width="match_parent"
+           android:layout_height="12dp"
+           android:background="#FFFFFF"/>
+
+       <EditText
+           android:id="@+id/txtDescripcion"
+           android:layout_width="match_parent"
+           android:layout_height="100dp"
+           android:gravity="top|start"
+           android:hint="@string/hintDescripcionParque"
+           android:inputType="textMultiLine"
+           android:padding="12dp"
+           tools:ignore="Autofill" />
+
+       <View
+           android:layout_width="match_parent"
+           android:layout_height="12dp"
+           android:background="#FFFFFF"/>
+
+       <EditText
+           android:id="@+id/txtTelefono"
+           android:layout_width="match_parent"
+           android:layout_height="48dp"
+           android:hint="@string/hintTlfParque"
+           android:inputType="phone"
+           android:padding="12dp"
+           tools:ignore="Autofill" />
+
+       <View
+           android:layout_width="match_parent"
+           android:layout_height="12dp"
+           android:background="#FFFFFF"/>
+
+       <EditText
+           android:id="@+id/txtWeb"
+           android:layout_width="match_parent"
+           android:layout_height="48dp"
+           android:hint="@string/hintWebParque"
+           android:inputType="textUri"
+           android:padding="12dp"
+           tools:ignore="Autofill" />
+
+       <Space
+           android:layout_width="match_parent"
+           android:layout_height="12dp"/>
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal">
+
+           <TextView
+               android:id="@+id/txtOpening"
+               android:layout_width="0dp"
+               android:layout_height="wrap_content"
+               android:layout_weight="1"
+               android:text="@string/txtOpeneningParque"/>
+
+           <TextView
+               android:id="@+id/txtClosing"
+               android:layout_width="0dp"
+               android:layout_height="wrap_content"
+               android:layout_weight="1"
+               android:text="@string/txtClosingParque"
+               android:gravity="end"/>
+
+       </LinearLayout>
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal"
+           android:paddingTop="4dp">
+
+           <Spinner
+               android:id="@+id/spnOpening"
+               android:layout_width="0dp"
+               android:layout_height="48dp"
+               android:layout_weight="1"
+               android:spinnerMode="dropdown"/>
+
+           <Spinner
+               android:id="@+id/spnClosing"
+               android:layout_width="0dp"
+               android:layout_height="48dp"
+               android:layout_weight="1"
+               android:spinnerMode="dropdown"/>
+
+       </LinearLayout>
+
+       <Space
+           android:layout_width="match_parent"
+           android:layout_height="12dp"/>
+
+       <TextView
+           android:id="@+id/txtActivities"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="@string/txtActivities"/>
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="vertical"
+           android:padding="8dp">
+
+           <CheckBox
+               android:id="@+id/cBoxSpots"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="@string/txtSports"/>
+
+           <CheckBox
+               android:id="@+id/cBoxChildrens"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="@string/txtChildrens"/>
+
+           <CheckBox
+               android:id="@+id/cBoxBar"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="@string/txtBar"/>
+
+       </LinearLayout>
+
+       <Space
+           android:layout_width="match_parent"
+           android:layout_height="12dp"/>
+
+       <Button
+           android:id="@+id/btnGuardar"
+           android:layout_width="match_parent"
+           android:layout_height="48dp"
+           android:text="@string/txtBtnGuardar"/>
+
+   </LinearLayout>
+
+</ScrollView>

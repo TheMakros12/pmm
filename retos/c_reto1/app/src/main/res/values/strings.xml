@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">c_reto1</string>
+    <string name="contDescrpImgSpotify">Logo de Spotify</string>
+    <string name="hintEtUser">Usuario</string>
+    <string name="txtBtnLogin">Iniciar Sesión</string>
+    <string name="txtMenuBuscar">Buscar</string>
+    <string name="txtMenuUsuarios">Perfil</string>
+    <string name="txtMenuAddUsuario">Usuarios</string>
+    <string name="contDescrpImgAlbum">Imagen del álbum</string>
+    <string name="hintEtPasswd">Contraseña</string>
+</resources>

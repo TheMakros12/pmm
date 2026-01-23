@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/user_buscar" android:title="@string/menuAdminBuscar" android:icon="@drawable/buscar"/>
+    <item android:id="@+id/user_perfil" android:title="@string/menuAdminPerfil" android:icon="@drawable/perfil"/>
+
+</menu>

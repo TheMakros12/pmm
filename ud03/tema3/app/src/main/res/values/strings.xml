@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">tema3</string>
+    <string name="hola">Hola Marta!</string>
+    <string name="hola2">Com estàs?</string>
+    <string name="btnInsertar">Insertar</string>
+    <string name="btnBorrar">Borrar</string>
+    <string name="btnActualizar">Actualizar</string>
+    <string name="btnListar">Listar</string>
+</resources>

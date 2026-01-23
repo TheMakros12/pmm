@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">dialogos</string>
+    <string name="txtMain">Ejemplo de Diálogos</string>
+    <string name="txtBtnUno">Ejemplo 1</string>
+    <string name="txtBtnDos">Ejemplo 2</string>
+    <string name="txtBtnTres">Ejemplo 3</string>
+</resources>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/tvInformacion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/verde"
+        android:text="@string/hola"
+        android:textSize="24sp"/>
+
+    <TextView
+        android:id="@+id/tvTexto2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/rosa"
+        android:text="@string/hola2"
+        android:textSize="24sp"
+        android:layout_marginTop="8dp"/>
+
+    <View
+        android:layout_width="@dimen/deafult"
+        android:layout_height="@dimen/deafult"
+        android:background="@color/azul"
+        android:layout_marginTop="8dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btnInsertarCliente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btnInsertar"/>
+
+        <Button
+            android:id="@+id/btnActualizarCliente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btnActualizar"/>
+
+        <Button
+            android:id="@+id/btnBorrarCliente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btnBorrar"/>
+
+        <Button
+            android:id="@+id/btnListarCliente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btnListar"/>
+    </LinearLayout>
+
+</LinearLayout>

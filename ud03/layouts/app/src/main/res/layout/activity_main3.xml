@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity3">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/red"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="40dp"
+        android:background="@color/blue"/>
+
+    <View
+        android:layout_width="@dimen/amarillo"
+        android:layout_height="@dimen/amarillo"
+        android:background="@color/yellow"
+        android:layout_gravity="center"/>
+
+    <RelativeLayout
+        android:layout_width="@dimen/azul_oscuro"
+        android:layout_height="@dimen/azul_oscuro"
+        android:background="@color/dark_blue"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"/>
+
+    <RelativeLayout
+        android:layout_width="@dimen/rosa"
+        android:layout_height="@dimen/rosa"
+        android:background="@color/pink"
+        android:layout_gravity="top|start"
+        android:layout_margin="16dp"/>
+
+    <RelativeLayout
+        android:layout_width="@dimen/beig"
+        android:layout_height="@dimen/beig"
+        android:background="@color/skin"
+        android:layout_gravity="center"/>
+
+</FrameLayout>

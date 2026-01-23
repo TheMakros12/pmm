@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">lotties_2</string>
+    <string name="txtBtnLanzar">Lanzar</string>
+    <string name="txtBtnVelocidadNormal">Vel. x1</string>
+    <string name="txtBtnVelocidadRapida">Vel. x2</string>
+    <string name="txtBtnVelocidadInversa">Inversa</string>
+    <string name="txtBtnReset">Reset</string>
+    <string name="txtBtnDescargar">Decargar</string>
+    <string name="fabContentDescription">Icono del teléfono</string>
+</resources>

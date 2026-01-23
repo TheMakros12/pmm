@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">reciclerView</string>
+    <string name="txtTvNombre">Nombre Completo</string>
+    <string name="txtTvOrden">1</string>
+    <string name="description">Decription de la IMG</string>
+</resources>

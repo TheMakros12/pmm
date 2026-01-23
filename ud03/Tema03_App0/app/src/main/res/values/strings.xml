@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Tema03_App0</string>
+    <string name="contentDescriptionImgParque">Imagen de Parque</string>
+    <string name="hintNombreParque">Nombre del Parque</string>
+    <string name="hintDescripcionParque">Descripción del Parque</string>
+    <string name="hintTlfParque">Teléfono del parque</string>
+    <string name="hintWebParque">Web del Parque</string>
+    <string name="txtOpeneningParque">Opening Time</string>
+    <string name="txtClosingParque">Closing Time</string>
+    <string name="txtActivities">Activities</string>
+    <string name="txtChildrens">Childrens</string>
+    <string name="txtBar">Bar</string>
+    <string name="txtBtnGuardar">Guardar</string>
+    <string name="txtSports">Sports</string>
+    <string name="txtDatosDelParque">Datos del Parque</string>
+</resources>

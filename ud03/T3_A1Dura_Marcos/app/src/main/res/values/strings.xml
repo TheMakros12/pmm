@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">T3_A1-Dura_Marcos</string>
+    <string name="contentDescriptionImgCupcake">Imagen de los Cupcakes</string>
+    <string name="tvAutor">Autor</string>
+    <string name="tvCupcakes">CUPCAKES</string>
+    <string name="tvDescripcion">Descripción</string>
+    <string name="tvTxtDescripcion">Una receta ideal para inciarse con los cupcakes, con la que preparar unos ricos cupcakes de vainilla con cobertura de butterceam, cobertura de la que os proponemos tres versiones.</string>
+    <string name="tvIngredientes">Ingredientes</string>
+    <string name="tvTxtIngredientes">-165g de harina de repostería \n-165g de mantequilla sin sal \n-165g de azúcar \n-15ml de esencia de vainilla \n-50ml de leche \n-5g de levadura \n-3 huevos medianos</string>
+    <string name="tvReceta">Receta</string>
+    <string name="tvTxtReceta">Una vez que tenemos el horno en marcha, y todos nuestros ingredientes medidos y pesados, vamos a comenzar a preparar la base de nuestros cupcakes. Nosotros empleamos una amasadora automática, pero se puede emplear también unas varillas manuales o un robot de cocina, lo que os resulte más cómodo dentro de lo que dispongáis.</string>
+
+</resources>

@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">recursos</string>
+    <string name="series_tittle">The Crown</string>
+    <string name="name_psinopsis">This drama follows the political This drama follows the political
+    This drama follows the political This drama follows the political This drama follows the political
+    This drama follows the political This drama follows the political</string>
+
+    <string name="btnWatchNow">Watch Now</string>
+    <string name="btnAddToList">Add to List</string>
+    <string name="relatedSeriesTittle">Related Series</string>
+    <string name="contentDescrp">Series Poster</string>
+</resources>
