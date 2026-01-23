@@ -21,7 +21,7 @@ class SplashActivity : AppCompatActivity() {
 
         binding.lottieView.playAnimation()
 
-        val splashScreenDuration = 1000 // 3 segundos
+        val splashScreenDuration = 3000 // 3 segundos
         val intent = Intent(this, MainActivity::class.java)
 
         binding.lottieView.postDelayed({

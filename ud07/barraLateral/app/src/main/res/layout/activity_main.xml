@@ -36,4 +36,10 @@
         app:menu="@menu/drawer_menu"
         />
 
+    <ImageView
+        android:id="@+id/imagen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
 </androidx.drawerlayout.widget.DrawerLayout>
