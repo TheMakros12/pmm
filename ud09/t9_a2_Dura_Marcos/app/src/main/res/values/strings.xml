@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">t9_a2_Dura_Marcos</string>
+    <string name="txtContentDescriptionIvDestino">Imagen del destino</string>
+    <string name="txtTvDestino">DESTINO</string>
+    <string name="txtContentDescriptionIbBtnEliminar">Icono de eliminar destino</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
