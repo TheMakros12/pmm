@@ -5,4 +5,6 @@
     <string name="txtContentDescriptionIbBtnEliminar">Icono de eliminar destino</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="txtContDescriptionIvViaje">Imagen del viaje</string>
+    <string name="txtTvNombreViaje">Nombre del Viaje</string>
 </resources>

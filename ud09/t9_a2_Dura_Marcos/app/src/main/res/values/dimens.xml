@@ -2,4 +2,5 @@
 <resources>
     <dimen name="imgDestino">100dp</dimen>
     <dimen name="imgEliminar">50dp</dimen>
+    <dimen name="heightImgViaje">175dp</dimen>
 </resources>
