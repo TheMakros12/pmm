@@ -16,6 +16,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            android:src="@color/cardview_dark_background"
             android:contentDescription="@string/txtContDescriptionIvViaje"
             />
 
@@ -26,10 +27,102 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivViaje"
             android:layout_marginTop="10dp"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="20dp"
             android:text="@string/txtTvNombreViaje"
-            android:textSize="16sp"
+            android:textSize="20sp"
             android:textStyle="bold"
+            />
+
+        <ImageView
+            android:id="@+id/ivIconaViaje"
+            android:layout_width="@dimen/icViaje"
+            android:layout_height="@dimen/icViaje"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvNombreViaje"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:src="@drawable/ic_destino"
+            android:contentDescription="@string/txtContentDescriptionIvDestino"
+            />
+
+        <TextView
+            android:id="@+id/tvNombreDestino"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/ivIconaViaje"
+            app:layout_constraintTop_toBottomOf="@id/tvNombreViaje"
+            android:text="@string/txtTvNombreDestino"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:textSize="16sp"
+            />
+
+        <ImageView
+            android:id="@+id/ivIconaCalendario"
+            android:layout_width="@dimen/icViaje"
+            android:layout_height="@dimen/icViaje"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivIconaViaje"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/ic_calendario"
+            android:contentDescription="@string/txtContentDescriptionIvCalendario"
+            />
+
+        <TextView
+            android:id="@+id/tvNombreTipo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/ivIconaCalendario"
+            app:layout_constraintEnd_toStartOf="@id/tvAux"
+            app:layout_constraintTop_toBottomOf="@id/tvNombreDestino"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:text="@string/txtTvTipo"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="20dp"
+            android:textSize="16sp"
+            />
+
+        <TextView
+            android:id="@+id/tvAux"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/tvNombreTipo"
+            app:layout_constraintTop_toBottomOf="@id/tvNombreDestino"
+            app:layout_constraintEnd_toStartOf="@id/tvCalendario"
+            android:text="@string/txtTvAux"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="20dp"
+            android:textSize="20sp"
+            />
+
+        <TextView
+            android:id="@+id/tvCalendario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/tvAux"
+            app:layout_constraintTop_toBottomOf="@id/tvNombreDestino"
+            android:text="@string/txtTvCalendario"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:textSize="16sp"
+            />
+
+        <ImageButton
+            android:id="@+id/btmEliminarViaje"
+            android:layout_width="@dimen/imgEliminar"
+            android:layout_height="@dimen/imgEliminar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivViaje"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_margin="20dp"
+            android:src="@drawable/ic_eliminar"
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/txtContentDescriptionIbBtnEliminar"
             />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

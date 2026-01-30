@@ -18,7 +18,8 @@ import androidx.room.PrimaryKey
 data class Viaje(
     @PrimaryKey(autoGenerate = true)
     val idViaje: Int,
-    val titulo: String,
+    val nombreViaje: String,
     val tipo: String,
-    val descripcion: String
+    val descripcion: String,
+    val fecha: String
 )

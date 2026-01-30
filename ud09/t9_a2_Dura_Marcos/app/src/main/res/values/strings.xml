@@ -7,4 +7,22 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="txtContDescriptionIvViaje">Imagen del viaje</string>
     <string name="txtTvNombreViaje">Nombre del Viaje</string>
+    <string name="txtTvNombreDestino">Destino</string>
+    <string name="txtContentDescriptionIvCalendario">Icono de un calendario</string>
+    <string name="txtTvCalendario">Fecha del Viaje</string>
+    <string name="txtTvTipo">Tipo</string>
+    <string name="txtTvAux">·</string>
+    <string name="txtContentDescriptionIvMisViajes">Imagen de Mis Viajes</string>
+    <string name="hintTituloViaje">Titulo del Viaje</string>
+    <string name="hintTipoViaje">Tipo (Ocio, Trabajo...)</string>
+    <string name="hintDescripcionViaje">Descripción del Viaje</string>
+    <string name="hintFechaViaje">Fecha del Viaje</string>
+    <string name="txtTvSeleccionDestino">Selecciona el Destino:</string>
+    <string name="txtBtnGuardarViaje">Guardar Viaje</string>
+    <string name="txtContentDescriptionIvDestinos">Imagen de los Destinos favoritos</string>
+    <string name="txtBtnAnyadir">Añadir</string>
+    <string name="txtTvMisViajes">Mis Viajes</string>
+    <string name="txtNavigationViajes">Viajes</string>
+    <string name="txtNavigatiosDestinos">Destinos</string>
+    <string name="txtContentDescriptionFab">Imagen de añadir un Viaje</string>
 </resources>

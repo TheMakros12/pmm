@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="imgDestino">100dp</dimen>
+    <dimen name="imgDestino">80dp</dimen>
     <dimen name="imgEliminar">50dp</dimen>
     <dimen name="heightImgViaje">175dp</dimen>
+    <dimen name="icViaje">20</dimen>
 </resources>
