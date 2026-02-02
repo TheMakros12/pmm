@@ -12,6 +12,7 @@ interface IViajeDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(viaje: Viaje): Long
 
+    @Delete
     suspend fun delete(viaje: Viaje)
 
     @Query("SELECT * FROM viajes")

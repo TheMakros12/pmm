@@ -7,5 +7,6 @@ import androidx.room.PrimaryKey
 data class Destino(
     @PrimaryKey(autoGenerate = true)
     val idDestino: Int = 0,
-    val nombre: String
+    val nombre: String,
+    val urlImagen: String
 )

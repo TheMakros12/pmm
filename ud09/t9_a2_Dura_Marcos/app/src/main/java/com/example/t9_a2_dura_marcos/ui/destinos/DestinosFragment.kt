@@ -10,6 +10,7 @@ import com.example.t9_a2_dura_marcos.data.Destino
 import com.example.t9_a2_dura_marcos.data.IDestinoDAO
 import com.example.t9_a2_dura_marcos.data.ViajeApplication
 import com.example.t9_a2_dura_marcos.databinding.FragmentDestinosBinding
+import com.example.t9_a2_dura_marcos.utils.generarUrlImagenDestino
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -62,9 +63,11 @@ class DestinosFragment : Fragment(R.layout.fragment_destinos) {
     }
 
     private fun insertarDestino(nombre: String) {
+
+        val imagenUrl = generarUrlImagenDestino(nombre)
         lifecycleScope.launch {
             withContext(Dispatchers.IO) {
-                destinoDao.insert(Destino(nombre = nombre))
+                destinoDao.insert(Destino(nombre = nombre, urlImagen = imagenUrl))
             }
             cargarDestinos()
         }

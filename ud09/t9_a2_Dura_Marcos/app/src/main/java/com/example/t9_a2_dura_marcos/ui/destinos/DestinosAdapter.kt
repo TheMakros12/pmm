@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.t9_a2_dura_marcos.R
 import com.example.t9_a2_dura_marcos.data.Destino
 import com.example.t9_a2_dura_marcos.databinding.ItemDestinoBinding
+import com.squareup.picasso.Picasso
 
 class DestinosAdapter(private val destinos: MutableList<Destino>, private val onEliminarClick: (Destino) -> Unit): RecyclerView.Adapter<DestinosAdapter.ViewHolder>() {
 
@@ -29,6 +30,11 @@ class DestinosAdapter(private val destinos: MutableList<Destino>, private val on
         val destino = destinos[position]
         with(holder) {
             binding.tvDestino.text = destino.nombre
+            Picasso.get()
+                .load(destino.urlImagen)
+                .fit()
+                .centerCrop()
+                .into(binding.ivDestino)
             binding.btnEliminarDestino.setOnClickListener {
                 onEliminarClick(destino)
             }
