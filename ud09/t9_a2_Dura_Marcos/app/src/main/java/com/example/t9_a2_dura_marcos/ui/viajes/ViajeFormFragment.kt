@@ -5,56 +5,104 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.Toast
+import androidx.lifecycle.lifecycleScope
 import com.example.t9_a2_dura_marcos.R
+import com.example.t9_a2_dura_marcos.data.Destino
+import com.example.t9_a2_dura_marcos.data.IDestinoDAO
+import com.example.t9_a2_dura_marcos.data.IViajeDAO
+import com.example.t9_a2_dura_marcos.data.Viaje
+import com.example.t9_a2_dura_marcos.data.ViajeApplication
+import com.example.t9_a2_dura_marcos.databinding.FragmentViajeFormBinding
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+class ViajeFormFragment : Fragment(R.layout.fragment_viaje_form) {
 
-/**
- * A simple [Fragment] subclass.
- * Use the [ViajeFormFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class ViajeFormFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private lateinit var binding: FragmentViajeFormBinding
+    private lateinit var destinoDao: IDestinoDAO
+    private lateinit var viajeDao: IViajeDAO
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+    private var listaDestinos: List<Destino> = emptyList()
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding = FragmentViajeFormBinding.bind(view)
+
+        destinoDao = ViajeApplication.database.destinoDao()
+        viajeDao = ViajeApplication.database.viajeDao()
+
+        cargarSpinnerDestinos()
+        setupListeners()
+
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_viaje_form, container, false)
-    }
+    private fun cargarSpinnerDestinos() {
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ViajeFormFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ViajeFormFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+        lifecycleScope.launch {
+            listaDestinos = withContext(Dispatchers.IO) {
+                destinoDao.getAll()
             }
+
+            val nombresDestinos = listaDestinos.map { it.nombre }
+            val spinnerAdapter = ArrayAdapter(
+                requireContext(),
+                android.R.layout.simple_spinner_item,
+                nombresDestinos
+            )
+            spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+
+            binding.spinnerDestinos.adapter = spinnerAdapter
+        }
+
     }
+
+    private fun setupListeners() {
+
+        binding.btnGuardarViaje.setOnClickListener {
+            val titulo = binding.tiTituloViaje.text.toString().trim()
+            val tipo = binding.tiTipoViaje.text.toString().trim()
+            val descripcion = binding.tiDescripcionViaje.text.toString().trim()
+            val fecha = binding.tiFechaViaje.text.toString().trim()
+            val posicionSpinner = binding.spinnerDestinos.selectedItemPosition
+
+            if (titulo.isEmpty() || tipo.isEmpty() || descripcion.isEmpty() || fecha.isEmpty() || posicionSpinner < 0) {
+                Toast.makeText(requireContext(), "Completa todos los campos", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            val destino = listaDestinos[posicionSpinner]
+
+            val viaje = Viaje(
+                nombreViaje = titulo,
+                tipo = tipo,
+                descripcion = descripcion,
+                fecha = fecha,
+                destinoId = destino.idDestino
+            )
+
+            binding.tiTituloViaje.text?.clear()
+            binding.tiTipoViaje.text?.clear()
+            binding.tiDescripcionViaje.text?.clear()
+            binding.tiFechaViaje.text?.clear()
+
+            insertarViaje(viaje)
+        }
+
+    }
+
+    private fun insertarViaje(viaje: Viaje) {
+
+        lifecycleScope.launch {
+            withContext(Dispatchers.IO) {
+                viajeDao.insert(viaje)
+            }
+            Toast.makeText(requireContext(), "Viaje guardado", Toast.LENGTH_SHORT).show()
+        }
+
+    }
+
 }

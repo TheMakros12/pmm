@@ -5,56 +5,69 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.t9_a2_dura_marcos.R
+import com.example.t9_a2_dura_marcos.data.Destino
+import com.example.t9_a2_dura_marcos.data.IDestinoDAO
+import com.example.t9_a2_dura_marcos.data.IViajeDAO
+import com.example.t9_a2_dura_marcos.data.IViajesConDestinoDAO
+import com.example.t9_a2_dura_marcos.data.Viaje
+import com.example.t9_a2_dura_marcos.data.ViajeApplication
+import com.example.t9_a2_dura_marcos.data.ViajeConDestino
+import com.example.t9_a2_dura_marcos.databinding.FragmentViajesListBinding
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+class ViajesListFragment : Fragment(R.layout.fragment_viajes_list) {
 
-/**
- * A simple [Fragment] subclass.
- * Use the [ViajesListFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class ViajesListFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private lateinit var binding: FragmentViajesListBinding
+    private lateinit var viajeConDestinoDao: IViajesConDestinoDAO
+    private lateinit var viajeDao: IViajeDAO
+    private lateinit var destinoDao: IDestinoDAO
+    private lateinit var adapterViaje: ViajeAdapter
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+    private var listaViajes: MutableList<ViajeConDestino> = mutableListOf()
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding = FragmentViajesListBinding.bind(view)
+        viajeConDestinoDao = ViajeApplication.database.viajeConDestinoDao()
+        destinoDao = ViajeApplication.database.destinoDao()
+        viajeDao = ViajeApplication.database.viajeDao()
+
+        setupRecyclerView()
+        cargarViajes()
+    }
+
+    private fun setupRecyclerView() {
+
+        adapterViaje = ViajeAdapter(listaViajes) { viaje -> eliminarViaje(viaje) }
+        binding.recyclerViewViajes.layoutManager = LinearLayoutManager(requireContext())
+        binding.recyclerViewViajes.adapter = adapterViaje
+
+    }
+
+    private fun cargarViajes() {
+        lifecycleScope.launch {
+            val listaViajes = withContext(Dispatchers.IO) {
+                viajeConDestinoDao.getViajesConDestino()
+            }
+
+            adapterViaje.actualizarViajes(listaViajes)
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_viajes_list, container, false)
+    private fun eliminarViaje(viaje: Viaje) {
+        lifecycleScope.launch {
+            withContext(Dispatchers.IO) {
+                viajeDao.delete(viaje)
+            }
+            cargarViajes()
+        }
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ViajesListFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ViajesListFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
 }

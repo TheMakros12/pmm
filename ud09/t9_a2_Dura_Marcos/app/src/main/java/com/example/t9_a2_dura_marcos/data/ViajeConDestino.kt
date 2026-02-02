@@ -5,7 +5,7 @@ import androidx.room.Relation
 
 data class ViajeConDestino(
     @Embedded
-    val viaje: Viaje,
-    @Relation(parentColumn = "id", entityColumn = "destinoid")
-    val destino: Destino
+    val destino: Destino,
+    @Relation(parentColumn = "idDestino", entityColumn = "destinoId")
+    val viajes: List<Viaje>
 )

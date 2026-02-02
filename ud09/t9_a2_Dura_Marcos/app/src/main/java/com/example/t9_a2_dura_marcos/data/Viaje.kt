@@ -2,6 +2,7 @@ package com.example.t9_a2_dura_marcos.data
 
 import androidx.room.Entity
 import androidx.room.ForeignKey
+import androidx.room.Index
 import androidx.room.PrimaryKey
 
 @Entity(
@@ -9,17 +10,19 @@ import androidx.room.PrimaryKey
     foreignKeys = [
         ForeignKey(
             entity = Destino::class,
-            parentColumns = ["id"],
-            childColumns = ["destinoid"],
+            parentColumns = ["idDestino"],
+            childColumns = ["destinoId"],
             onDelete = ForeignKey.CASCADE
         )
-    ]
+    ],
+    indices = [Index("destinoId")]
 )
 data class Viaje(
     @PrimaryKey(autoGenerate = true)
-    val idViaje: Int,
+    val idViaje: Int = 0,
     val nombreViaje: String,
     val tipo: String,
     val descripcion: String,
-    val fecha: String
+    val fecha: String,
+    val destinoId: Int
 )

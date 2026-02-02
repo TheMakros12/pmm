@@ -6,10 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.t9_a2_dura_marcos.R
+import com.example.t9_a2_dura_marcos.data.Destino
+import com.example.t9_a2_dura_marcos.data.Viaje
 import com.example.t9_a2_dura_marcos.data.ViajeConDestino
 import com.example.t9_a2_dura_marcos.databinding.ItemViajeBinding
 
-class ViajeAdapter(private val viajes: List<ViajeConDestino>): RecyclerView.Adapter<ViajeAdapter.ViewHolder>() {
+class ViajeAdapter(private val viajes: MutableList<ViajeConDestino>, private val onEliminarClick: (Viaje) -> Unit): RecyclerView.Adapter<ViajeAdapter.ViewHolder>() {
 
     private lateinit var context: Context
 
@@ -26,12 +28,19 @@ class ViajeAdapter(private val viajes: List<ViajeConDestino>): RecyclerView.Adap
         holder: ViewHolder,
         position: Int
     ) {
-        val viaje = viajes[position]
-        with(holder) {
-            binding.tvNombreViaje.text = viaje.viaje.nombreViaje
-            binding.tvNombreDestino.text = viaje.destino.nombre
-            binding.tvNombreTipo.text = viaje.viaje.tipo
-            binding.tvCalendario.text = viaje.viaje.fecha
+        val item = viajes[position]
+
+        if (item.viajes.isNotEmpty()) {
+            val viaje = item.viajes[0]
+            with(holder) {
+                binding.tvNombreViaje.text = viaje.nombreViaje
+                binding.tvNombreDestino.text = item.destino.nombre
+                binding.tvNombreTipo.text = viaje.tipo
+                binding.tvCalendario.text = viaje.fecha
+                binding.btnEliminarViaje.setOnClickListener {
+                    onEliminarClick(viaje)
+                }
+            }
         }
     }
 
@@ -39,5 +48,13 @@ class ViajeAdapter(private val viajes: List<ViajeConDestino>): RecyclerView.Adap
 
     inner class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
         val binding = ItemViajeBinding.bind(view)
+    }
+
+    fun actualizarViajes(nuevosViajes: List<ViajeConDestino>) {
+
+        viajes.clear()
+        viajes.addAll(nuevosViajes)
+        notifyDataSetChanged()
+
     }
 }

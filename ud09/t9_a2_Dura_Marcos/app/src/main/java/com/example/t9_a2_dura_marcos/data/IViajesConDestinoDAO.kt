@@ -9,6 +9,6 @@ interface IViajesConDestinoDAO {
 
     @Transaction
     @Query("SELECT * FROM destinos")
-    suspend fun getDestinosConViajes(): List<ViajeConDestino>
+    suspend fun getViajesConDestino(): List<ViajeConDestino>
 
 }

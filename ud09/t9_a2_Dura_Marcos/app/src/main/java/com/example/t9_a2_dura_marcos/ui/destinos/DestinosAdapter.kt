@@ -9,7 +9,7 @@ import com.example.t9_a2_dura_marcos.R
 import com.example.t9_a2_dura_marcos.data.Destino
 import com.example.t9_a2_dura_marcos.databinding.ItemDestinoBinding
 
-class DestinosAdapter(private val destinos: List<Destino>): RecyclerView.Adapter<DestinosAdapter.ViewHolder>() {
+class DestinosAdapter(private val destinos: MutableList<Destino>, private val onEliminarClick: (Destino) -> Unit): RecyclerView.Adapter<DestinosAdapter.ViewHolder>() {
 
     private lateinit var context: Context
 
@@ -29,6 +29,9 @@ class DestinosAdapter(private val destinos: List<Destino>): RecyclerView.Adapter
         val destino = destinos[position]
         with(holder) {
             binding.tvDestino.text = destino.nombre
+            binding.btnEliminarDestino.setOnClickListener {
+                onEliminarClick(destino)
+            }
         }
     }
 
@@ -37,6 +40,12 @@ class DestinosAdapter(private val destinos: List<Destino>): RecyclerView.Adapter
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val binding = ItemDestinoBinding.bind(view)
 
+    }
+
+    fun actualizarDetinos(nuevosDestinos: List<Destino>) {
+        destinos.clear()
+        destinos.addAll(nuevosDestinos)
+        notifyDataSetChanged()
     }
 
 }

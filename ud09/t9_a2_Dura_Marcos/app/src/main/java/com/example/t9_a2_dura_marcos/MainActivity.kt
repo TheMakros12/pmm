@@ -41,8 +41,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.fabAnyadirViaje.setOnClickListener {
-            val intentAnyadirViaje = Intent(this, ViajeFormFragment::class.java)
-            startActivity(intentAnyadirViaje)
+            replaceFragment(ViajeFormFragment())
         }
 
     }
