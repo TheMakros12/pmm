@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Reto_Libreria</string>
+    <string name="txtTvAutorLibro">Autor del Libro</string>
+    <string name="txtTvNombreLibro">Nombre del Libro</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="txtBtnAnyadorLibro">Añadir Libro</string>
+    <string name="txtBtnInsertarLibro">Insertar Libro</string>
+    <string name="txtHintEtAutorLibro">Autor del Libro</string>
+    <string name="txtHintEtNombreLibro">Nombre del Libro</string>
+</resources>
