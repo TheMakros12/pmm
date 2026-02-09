@@ -135,31 +135,15 @@ class BuscarLegosFragment : Fragment() {
     private fun guardarLego(legoResponse: LegoResponse) {
         lifecycleScope.launch {
             try {
-                Log.d("DB_TEST", "Guardando theme_id = ${legoResponse.theme_id}")
-
-                val resultado = LegoApplication.database
-                    .legoDao()
-                    .insertSet(legoResponse)
+                val resultado = LegoApplication.database.legoDao().insertSet(legoResponse)
 
                 if (resultado > 0) {
-                    Toast.makeText(
-                        requireContext(),
-                        "Has guardado el Lego ${legoResponse.set_num.split("-")[0]}",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    Toast.makeText(requireContext(), "Has guardado el Lego ${legoResponse.set_num.split("-")[0]}", Toast.LENGTH_SHORT).show()
                 } else {
-                    Toast.makeText(
-                        requireContext(),
-                        "Este Lego ya estaba guardado",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    Toast.makeText(requireContext(), "Este Lego ya estaba guardado", Toast.LENGTH_SHORT).show()
                 }
             } catch (e: Exception) {
-                Toast.makeText(
-                    requireContext(),
-                    "Error guardando el Lego",
-                    Toast.LENGTH_SHORT
-                ).show()
+                Toast.makeText(requireContext(), "Error guardando el Lego", Toast.LENGTH_SHORT).show()
             }
         }
     }

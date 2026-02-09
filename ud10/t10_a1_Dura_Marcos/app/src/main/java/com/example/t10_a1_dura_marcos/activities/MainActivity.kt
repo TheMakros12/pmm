@@ -1,10 +1,12 @@
 package com.example.t10_a1_dura_marcos.activities
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.t10_a1_dura_marcos.R
+import com.example.t10_a1_dura_marcos.data.Usuario
 import com.example.t10_a1_dura_marcos.databinding.ActivityMainBinding
 import com.example.t10_a1_dura_marcos.fragments.BuscarLegosFragment
 import com.example.t10_a1_dura_marcos.fragments.MisLegosFragment
@@ -13,6 +15,7 @@ import com.example.t10_a1_dura_marcos.fragments.PerfilFragment
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private lateinit var usuario: Usuario
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -21,6 +24,11 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        usuario = intent.getSerializableExtra("usuario") as? Usuario
+            ?: Usuario("Desconocido", "", "", 0)
+
+        Toast.makeText(this, "Bienvenido ${usuario.nombre}!!!", Toast.LENGTH_SHORT).show()
 
         replaceFragment(BuscarLegosFragment())
 
@@ -35,7 +43,7 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.navigation_perfil -> {
-                    replaceFragment(PerfilFragment())
+                    replaceFragment(PerfilFragment.newInstance(usuario))
                     true
                 }
                 else -> false

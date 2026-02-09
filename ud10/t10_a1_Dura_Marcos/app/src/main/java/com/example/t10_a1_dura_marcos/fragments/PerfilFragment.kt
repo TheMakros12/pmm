@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import com.example.t10_a1_dura_marcos.R
+import com.example.t10_a1_dura_marcos.data.Usuario
 import com.example.t10_a1_dura_marcos.database.LegoApplication
 import com.example.t10_a1_dura_marcos.databinding.FragmentPerfilBinding
 import kotlinx.coroutines.launch
@@ -16,6 +17,24 @@ import kotlinx.coroutines.launch
 class PerfilFragment : Fragment() {
 
     private lateinit var binding: FragmentPerfilBinding
+    private var usuario: Usuario? = null
+
+    companion object {
+        private const val ARG_USUARIO = "usuario"
+
+        fun newInstance(usuario: Usuario): PerfilFragment {
+            val fragment = PerfilFragment()
+            val bundle = Bundle()
+            bundle.putSerializable(ARG_USUARIO, usuario)
+            fragment.arguments = bundle
+            return fragment
+        }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        usuario = arguments?.getSerializable(ARG_USUARIO) as? Usuario
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,6 +46,12 @@ class PerfilFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        usuario?.let {
+            val nombreCompleto = it.nombre + " " + it.apellidos
+            binding.tvInfoNombre.text = nombreCompleto
+            binding.tvInfoEmail.text = it.email
+        }
 
         cargarTotales()
 
