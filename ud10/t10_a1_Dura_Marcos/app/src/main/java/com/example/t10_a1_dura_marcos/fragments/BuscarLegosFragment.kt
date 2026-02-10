@@ -84,7 +84,7 @@ class BuscarLegosFragment : Fragment() {
             try {
                 val response = RetrofitInstance.api.getThemes()
                 val apiThemes = response.results.associate { it.id to it.name }
-                themes = apiThemes + localThemesMap  // Los locales rellenan los que faltan
+                themes = apiThemes + localThemesMap
                 onLoaded()
             } catch (e: Exception) {
                 Toast.makeText(requireContext(), "Error cargando categorías", Toast.LENGTH_SHORT).show()

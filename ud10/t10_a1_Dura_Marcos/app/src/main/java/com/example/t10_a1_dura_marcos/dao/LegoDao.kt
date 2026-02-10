@@ -16,11 +16,11 @@ interface LegoDao {
     @Delete
     suspend fun deleteSet(set: LegoResponse): Int
 
+    @Query("DELETE FROM legos WHERE set_num = :legoId")
+    suspend fun deleteSetById(legoId: String): Int
+
     @Query("DELETE FROM legos")
     suspend fun deleteAllSets(): Int
-
-    @Query("SELECT * FROM legos")
-    suspend fun getSets(): List<LegoResponse>
 
     @Query("SELECT DISTINCT theme_id FROM legos")
     suspend fun getSavedThemeIds(): List<Int>

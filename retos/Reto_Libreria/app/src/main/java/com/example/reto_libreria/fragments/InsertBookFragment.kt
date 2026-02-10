@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import com.example.reto_libreria.R
 import com.example.reto_libreria.dao.LibroDao
@@ -24,18 +25,18 @@ class InsertBookFragment : Fragment(R.layout.fragment_insert_book) {
         libroDao = LibroApplication.database.libroDao()
 
         binding.btnInsertarLibro.setOnClickListener {
-            val nombreLibro = binding.etNombreLibro.text.toString()
-            val autorLibro = binding.etAutorLibro.text.toString()
+            val nombreLibro = binding.etNombreLibro.text.toString().trim()
+            val autorLibro = binding.etAutorLibro.text.toString().trim()
+
+            if (nombreLibro.isBlank() || autorLibro.isBlank()) {
+                Toast.makeText(requireContext(), "Por favor completa todos los campos", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
 
             lifecycleScope.launch {
                 libroDao.insert(Libro(nombre = nombreLibro, autor = autorLibro))
+                parentFragmentManager.popBackStack()
             }
-
-            childFragmentManager.beginTransaction()
-                .replace(R.id.fragmentContainer, ListBookFragment())
-                .commit()
         }
-
     }
-
 }

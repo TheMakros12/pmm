@@ -76,12 +76,18 @@ class MisLegosFragment : Fragment() {
                 spinnerItems = themeIdsOrdered.map { id ->
                     themesMap[id] ?: localThemesMap[id] ?: "Tema desconodico ($id)"
                 }
-                Log.d("SPINNER_DEBUG", "themeIdsOrdered: $themeIdsOrdered")
-                Log.d("SPINNER_DEBUG", "spinnerItems: $spinnerItems")
 
-                adapter = LegosGuardadosAdapter(mutableListOf(), themesMap) { legoResponse ->
-                    mostrarDialogoConfirmacion(legoResponse)
-                }
+                adapter = LegosGuardadosAdapter(
+                    mutableListOf(),
+                    themesMap,
+                    onBorrarClick = { legoResponse ->
+                        mostrarDialogoConfirmacion(legoResponse)
+                    },
+                    onItemClick = { legoResponse ->
+                        abrirPiezasFragment(legoResponse.set_num)
+                    }
+                )
+
                 binding.recylerViewLegos.adapter = adapter
 
                 cargarSpinner()
@@ -116,10 +122,7 @@ class MisLegosFragment : Fragment() {
                     val themeId = themeIdsOrdered[position]
 
                     lifecycleScope.launch {
-                        val legos = LegoApplication.database
-                            .legoDao()
-                            .getLegosByTheme(themeId)
-
+                        val legos = LegoApplication.database.legoDao().getLegosByTheme(themeId)
                         adapter.setItems(legos)
                     }
                 }
@@ -164,5 +167,13 @@ class MisLegosFragment : Fragment() {
             }
             .setIcon(R.drawable.ic_lego)
             .show()
+    }
+
+    private fun abrirPiezasFragment(setNum: String) {
+        val fragment = PiezasFragment.newInstance(setNum)
+        parentFragmentManager.beginTransaction()
+            .replace(R.id.fragmentContainer, fragment)
+            .addToBackStack(null)
+            .commit()
     }
 }

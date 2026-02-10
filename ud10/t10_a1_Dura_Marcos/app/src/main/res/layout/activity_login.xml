@@ -21,7 +21,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="40dp"
         android:src="@drawable/ic_lego"
         android:contentDescription="@string/txtContentDescriptionIvLego"
         />
@@ -33,7 +33,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ivLegoLogin"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="80dp"
         android:text="@string/txtTvBienvenido"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -59,7 +59,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
-            android:textColor="@color/black"
             android:textStyle="bold"
             />
 
@@ -115,31 +114,6 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tiLayoutEdad"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tiLayoutEmail"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:hint="@string/txtHintEdad"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
-        android:layout_marginTop="20dp"
-        app:endIconMode="clear_text"
-        >
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/tiEdad"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
     <LinearLayout
         android:id="@+id/layoutBotones"
         android:layout_width="match_parent"
@@ -148,7 +122,7 @@
         android:divider="@drawable/divider_space"
         android:showDividers="middle"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tiLayoutEdad"
+        app:layout_constraintTop_toBottomOf="@id/tiLayoutEmail"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="20dp"
         android:layout_marginStart="40dp"

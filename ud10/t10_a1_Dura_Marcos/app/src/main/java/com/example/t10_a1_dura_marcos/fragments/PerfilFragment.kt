@@ -55,8 +55,12 @@ class PerfilFragment : Fragment() {
 
         cargarTotales()
 
+        binding.btnBorrarLego.setOnClickListener {
+            mostrarDialogoDelete()
+        }
+
         binding.btnBorrarTodosLosLegos.setOnClickListener {
-            mostrarDialogoBorrado()
+            mostrarDialogoDeleteAll()
         }
     }
 
@@ -75,24 +79,32 @@ class PerfilFragment : Fragment() {
         }
     }
 
-    private fun mostrarDialogoBorrado() {
+    private fun mostrarDialogoDeleteAll() {
         AlertDialog.Builder(requireContext())
             .setTitle("Eliminar todos los sets")
             .setMessage("Esta acción eliminará todos los legos guardados. ¿Deseas continuar?")
             .setPositiveButton("Eliminar") { _, _ ->
-
                 lifecycleScope.launch {
-                    val deleted =
-                        LegoApplication.database
-                            .legoDao()
-                            .deleteAllSets()
+                    val deleted = LegoApplication.database.legoDao().deleteAllSets()
+                    Toast.makeText(requireContext(), "Se han eliminado $deleted sets", Toast.LENGTH_SHORT).show()
+                    cargarTotales()
+                }
+            }
+            .setNegativeButton("Cancelar", null)
+            .setIcon(R.drawable.ic_lego)
+            .show()
+    }
 
-                    Toast.makeText(
-                        requireContext(),
-                        "Se han eliminado $deleted sets",
-                        Toast.LENGTH_SHORT
-                    ).show()
+    private fun mostrarDialogoDelete() {
+        val id = binding.etBorrarLego.text.toString() + "-1"
 
+        AlertDialog.Builder(requireContext())
+            .setTitle("Eliminar set con Id: $id")
+            .setMessage("Esta acción eliminará el set $id. ¿Deseas continuar?")
+            .setPositiveButton("Eliminar") { _, _ ->
+                lifecycleScope.launch {
+                    val deleted = LegoApplication.database.legoDao().deleteSetById(id)
+                    Toast.makeText(requireContext(), "Se han eliminado $deleted sets", Toast.LENGTH_SHORT).show()
                     cargarTotales()
                 }
             }

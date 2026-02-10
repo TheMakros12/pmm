@@ -37,4 +37,10 @@
     <string name="txtTvSeleccionaCategoria">Selecciona una categoria</string>
     <string name="txtBtnBorrarLego">Borrar</string>
     <string name="txtBtnBorrarTodosLosLegos">Borrar Todos los Legos</string>
+    <string name="txtTvBorrarDatos">Borrar Datos</string>
+    <string name="txtHintEtBorrarLego">Id del Lego a Borrar</string>
+    <string name="txtContentDescriptionPiezaLego">Imagen de Pieza de Lego</string>
+    <string name="txtTvNumPiezaLego">Nª de Pieza</string>
+    <string name="txtTvPiezasLegoSet">Nº de piezas en set</string>
+    <string name="txtTvListadoPiezas">Listado de Piezas</string>
 </resources>

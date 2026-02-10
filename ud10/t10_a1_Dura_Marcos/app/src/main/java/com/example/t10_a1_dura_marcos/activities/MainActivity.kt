@@ -18,7 +18,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var usuario: Usuario
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
@@ -26,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         usuario = intent.getSerializableExtra("usuario") as? Usuario
-            ?: Usuario("Desconocido", "", "", 0)
+            ?: Usuario("Desconocido", "", "")
 
         Toast.makeText(this, "Bienvenido ${usuario.nombre}!!!", Toast.LENGTH_SHORT).show()
 
@@ -49,7 +48,6 @@ class MainActivity : AppCompatActivity() {
                 else -> false
             }
         }
-
     }
 
     private fun replaceFragment(fragment: Fragment) {

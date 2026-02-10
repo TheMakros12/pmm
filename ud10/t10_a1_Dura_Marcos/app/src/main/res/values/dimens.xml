@@ -6,4 +6,5 @@
     <dimen name="heightSpinnerCategorias">50dp</dimen>
     <dimen name="ivLegoLogin">100dp</dimen>
     <dimen name="imgPerfilUser">120dp</dimen>
+    <dimen name="ivPiezaLego">80dp</dimen>
 </resources>

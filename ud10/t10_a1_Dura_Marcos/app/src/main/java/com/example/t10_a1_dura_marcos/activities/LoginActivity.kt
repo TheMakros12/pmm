@@ -16,7 +16,6 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
@@ -27,21 +26,13 @@ class LoginActivity : AppCompatActivity() {
             val nombre = binding.tiNombre.text.toString()
             val apellidos = binding.tiApellidos.text.toString()
             val email = binding.tiEmail.text.toString()
-            val edadText = binding.tiEdad.text.toString()
 
-            if (nombre.isEmpty() || apellidos.isEmpty() || email.isEmpty() || edadText.isEmpty()) {
+            if ( nombre.isEmpty() || apellidos.isEmpty() || email.isEmpty() ) {
                 Toast.makeText(this, "Por favor completa todos los campos", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            val edad = try {
-                edadText.toInt()
-            } catch (e: NumberFormatException) {
-                Toast.makeText(this, "Edad no válida", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
-
-            val usuario = Usuario(nombre, apellidos, email, edad)
+            val usuario = Usuario(nombre, apellidos, email)
 
             val intent = Intent(this, MainActivity::class.java)
             intent.putExtra("usuario", usuario)
@@ -51,7 +42,6 @@ class LoginActivity : AppCompatActivity() {
         binding.btnSalirApp.setOnClickListener {
             finishAffinity()
         }
-
     }
 
 }

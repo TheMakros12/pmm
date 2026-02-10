@@ -37,18 +37,21 @@ class ListBookFragment : Fragment(R.layout.fragment_list_book) {
 
     private fun setupRecyclerView() {
         libroAdapter = LibroAdapter(mutableListOf())
-
         binding.recyclerView.apply {
             layoutManager = LinearLayoutManager(requireContext())
-            adapter = this@ListBookFragment.libroAdapter
+            adapter = libroAdapter
         }
     }
 
     private fun cargarLibros() {
         lifecycleScope.launch {
             val libros: List<Libro> = libroDao.getAll()
-                libroAdapter.actualizarLibros(libros)
+            libroAdapter.actualizarLibros(libros)
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        cargarLibros()
+    }
 }

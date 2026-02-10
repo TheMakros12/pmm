@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Ejemplo_API_VideoJuegos</string>
+    <string name="txtEtHintBuscarJuego">Nombre del Juego</string>
+    <string name="txtBtnBuscarJuego">Buscar Juego</string>
+    <string name="txtContDescriptionJuego">Imagen del Juego</string>
+    <string name="txtTvNombreJuego">Nombre del Juego</string>
+</resources>
