@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.t10_a1_dura_marcos.R
 import com.example.t10_a1_dura_marcos.adapters.LegoAdapter
 import com.example.t10_a1_dura_marcos.api.RetrofitInstance
 import com.example.t10_a1_dura_marcos.data.LegoResponse
@@ -166,4 +167,12 @@ class BuscarLegosFragment : Fragment() {
         bottomSheet.show(parentFragmentManager, "LegoDetailBottomSheet")
     }
 
+    fun abrirWebView(urlLego: String) {
+        val fragment = WebFragment.newInstance(urlLego)
+
+        parentFragmentManager.beginTransaction()
+            .replace(R.id.fragmentContainer, fragment)
+            .addToBackStack(null)
+            .commit()
+    }
 }

@@ -93,7 +93,9 @@
         android:layout_height="wrap_content"
         app:layout_constraintStart_toEndOf="@id/tvAnyoSalida"
         app:layout_constraintTop_toBottomOf="@id/tvNombreLego"
+        app:layout_constraintBottom_toTopOf="@id/btnPaginaWeb"
         android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:text="@string/txtTvAnyoSalidaInfo"
         android:textSize="16sp"
         />
@@ -102,8 +104,9 @@
         android:id="@+id/tvPrecioEstimado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btnPaginaWeb"
         app:layout_constraintEnd_toStartOf="@id/tvPrecioEstimadoInfo"
+        android:layout_marginBottom="10dp"
         android:text="@string/txtTvPrecioEstimado"
         android:textSize="16sp"
         />
@@ -112,10 +115,24 @@
         android:id="@+id/tvPrecioEstimadoInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btnPaginaWeb"
         app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="10dp"
         android:text="@string/txtTvPrecioEstimadoInfo"
         android:textSize="16sp"
+        />
+
+    <Button
+        android:id="@+id/btnPaginaWeb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tvAnyoSalida"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/txtBtnVisitarWeb"
+        style="@style/AppButtonStyle"
+        android:layout_marginTop="10dp"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

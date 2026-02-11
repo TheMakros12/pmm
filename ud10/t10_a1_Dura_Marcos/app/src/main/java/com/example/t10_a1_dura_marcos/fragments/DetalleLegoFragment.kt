@@ -21,6 +21,7 @@ import kotlinx.coroutines.launch
 class DetalleLegoFragment : BottomSheetDialogFragment() {
 
     private lateinit var binding: FragmentDetalleLegoBinding
+    private lateinit var legoActual: LegoResponse
 
     companion object {
         private const val ARG_SET_NUM = "set_num"
@@ -48,6 +49,10 @@ class DetalleLegoFragment : BottomSheetDialogFragment() {
 
         val setNum = arguments?.getString(ARG_SET_NUM) ?: return
         cargarDetalle(setNum)
+
+        binding.btnPaginaWeb.setOnClickListener {
+            abrirWeb()
+        }
     }
 
     override fun onStart() {
@@ -76,6 +81,8 @@ class DetalleLegoFragment : BottomSheetDialogFragment() {
     }
 
     private fun bindLego(lego: LegoResponse) {
+        legoActual = lego
+
         binding.tvIdLego.text = lego.set_num.split("-")[0]
         binding.tvNombreLego.text = lego.name
         binding.tvPiezasLego.text = "${lego.num_parts} pzs."
@@ -87,5 +94,11 @@ class DetalleLegoFragment : BottomSheetDialogFragment() {
         Picasso.get()
             .load(lego.set_img_url)
             .into(binding.ivImgLego)
+    }
+
+    private fun abrirWeb() {
+        val urlLego = legoActual.set_url
+        dismiss()
+        (parentFragment as? BuscarLegosFragment)?.abrirWebView(urlLego)
     }
 }

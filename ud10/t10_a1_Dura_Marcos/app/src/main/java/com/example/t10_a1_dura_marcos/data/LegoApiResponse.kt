@@ -15,5 +15,6 @@ data class LegoResponse(
     val theme_id: Int,
     val num_parts: Int,
     val set_img_url: String,
-    val year: Int
+    val year: Int,
+    val set_url: String
 )

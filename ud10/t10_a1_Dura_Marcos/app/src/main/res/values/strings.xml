@@ -49,4 +49,5 @@
     <string name="txtTvPrecioEstimado">"Precio estimado: "</string>
     <string name="txtTvPrecioEstimadoInfo">xx.xx€</string>
     <string name="txtTvInfoLego">Información del Lego</string>
+    <string name="txtBtnVisitarWeb">Visitar Página web</string>
 </resources>
