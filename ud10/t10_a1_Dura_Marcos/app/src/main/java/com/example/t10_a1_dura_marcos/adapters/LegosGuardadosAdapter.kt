@@ -77,7 +77,7 @@ class LegosGuardadosAdapter(private val legos: MutableList<LegoResponse>,
 
     fun addItem(lego: LegoResponse) {
         legos.add(lego)
-        notifyItemInserted(legos.size - 1) // agrega al final de la lista
+        notifyItemInserted(legos.size - 1)
     }
 
 }

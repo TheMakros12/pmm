@@ -19,7 +19,7 @@ interface LegoApiServices {
                                @Query("ordering") order: String = "-year,-set_num"): LegoApiResponse
 
     @GET("sets/{set_num}/")
-    suspend fun getSetDetail(
+    suspend fun getLegoById(
         @Path("set_num") setNum: String
     ): LegoResponse
 

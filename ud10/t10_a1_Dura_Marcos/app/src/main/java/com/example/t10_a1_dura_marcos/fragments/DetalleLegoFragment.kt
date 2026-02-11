@@ -2,13 +2,12 @@ package com.example.t10_a1_dura_marcos.fragments
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
-import com.example.t10_a1_dura_marcos.R
+import com.example.t10_a1_dura_marcos.activities.NavigationWebListener
 import com.example.t10_a1_dura_marcos.api.RetrofitInstance
 import com.example.t10_a1_dura_marcos.data.CalculadoraPrecios
 import com.example.t10_a1_dura_marcos.data.LegoResponse
@@ -66,14 +65,11 @@ class DetalleLegoFragment : BottomSheetDialogFragment() {
     }
 
     private fun cargarDetalle(setNum: String) {
-
-        Log.d("LegoDetail", "set_num enviado: '$setNum'")
         lifecycleScope.launch {
             try {
-                val lego = RetrofitInstance.api.getSetDetail(setNum)
+                val lego = RetrofitInstance.api.getLegoById(setNum)
                 bindLego(lego)
             } catch (e: Exception) {
-                Log.e("LegoDetail", "Error cargando detalle", e)
                 Toast.makeText(requireContext(), "Error cargando detalle", Toast.LENGTH_SHORT).show()
                 dismiss()
             }
@@ -99,6 +95,6 @@ class DetalleLegoFragment : BottomSheetDialogFragment() {
     private fun abrirWeb() {
         val urlLego = legoActual.set_url
         dismiss()
-        (parentFragment as? BuscarLegosFragment)?.abrirWebView(urlLego)
+        (activity as? NavigationWebListener)?.abrirWebFragment(urlLego)
     }
 }

@@ -11,8 +11,9 @@ import com.example.t10_a1_dura_marcos.databinding.ActivityMainBinding
 import com.example.t10_a1_dura_marcos.fragments.BuscarLegosFragment
 import com.example.t10_a1_dura_marcos.fragments.MisLegosFragment
 import com.example.t10_a1_dura_marcos.fragments.PerfilFragment
+import com.example.t10_a1_dura_marcos.fragments.WebFragment
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), NavigationWebListener {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var usuario: Usuario
@@ -51,6 +52,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun replaceFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragmentContainer, fragment)
+            .addToBackStack(null)
+            .commit()
+    }
+
+    override fun abrirWebFragment(url: String) {
+        val fragment = WebFragment.newInstance(url)
+
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragmentContainer, fragment)
             .addToBackStack(null)

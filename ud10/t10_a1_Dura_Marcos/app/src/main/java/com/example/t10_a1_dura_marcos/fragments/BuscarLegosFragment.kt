@@ -70,6 +70,16 @@ class BuscarLegosFragment : Fragment() {
             cargarSetsIniciales()
         }
 
+        binding.btnBuscarLego.setOnClickListener {
+            val idLego = binding.tiIdLego.text.toString() + "-1"
+
+            if (idLego.isEmpty()) {
+                Toast.makeText(requireContext(), "Debes introducir un ID!!!", Toast.LENGTH_LONG).show()
+                return@setOnClickListener
+            }
+
+            buscarYGuardarSet(idLego)
+        }
     }
 
     private fun setupRecyclerView() {
@@ -167,12 +177,28 @@ class BuscarLegosFragment : Fragment() {
         bottomSheet.show(parentFragmentManager, "LegoDetailBottomSheet")
     }
 
-    fun abrirWebView(urlLego: String) {
-        val fragment = WebFragment.newInstance(urlLego)
+    private fun buscarYGuardarSet(idLego: String) {
+        lifecycleScope.launch {
+            try {
+                val lego = RetrofitInstance.api.getLegoById(idLego)
+                val resultado = LegoApplication.database.legoDao().insertSet(lego)
 
-        parentFragmentManager.beginTransaction()
-            .replace(R.id.fragmentContainer, fragment)
-            .addToBackStack(null)
-            .commit()
+                if ( resultado > 0 ) {
+                    Toast.makeText(requireContext(), "Set ${lego.set_num} guardado correctamente", Toast.LENGTH_SHORT).show()
+                }else {
+                    Toast.makeText(requireContext(), "Este set ya estaba guardado", Toast.LENGTH_SHORT).show()
+                }
+            } catch (e: retrofit2.HttpException) {
+                if (e.code() == 404) {
+                    Toast.makeText(requireContext(), "No existe ningún set con ese ID", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(requireContext(), "Error en la API (${e.code()})", Toast.LENGTH_SHORT).show()
+                }
+                Log.e("BuscarSet", "Error HTTP", e)
+            } catch (e: Exception) {
+                Toast.makeText(requireContext(), "Error inesperado", Toast.LENGTH_SHORT).show()
+                Log.e("BuscarSet", "Error", e)
+            }
+        }
     }
 }

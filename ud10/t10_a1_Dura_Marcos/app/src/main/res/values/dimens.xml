@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="heightIvLego">150dp</dimen>
+    <dimen name="heightIvLego">125dp</dimen>
     <dimen name="heghtBtnComprarLego">40dp</dimen>
     <dimen name="ivLegoMain">50dp</dimen>
     <dimen name="heightSpinnerCategorias">50dp</dimen>
