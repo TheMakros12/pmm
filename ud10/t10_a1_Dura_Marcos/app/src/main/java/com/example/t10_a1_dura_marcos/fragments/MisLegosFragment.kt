@@ -34,7 +34,10 @@ class MisLegosFragment : Fragment() {
         721 to "Icons",
         171 to "Star Wars",
         769 to "Botanicals",
-        702 to "Marvel"
+        702 to "Marvel",
+        785 to "Nike",
+        781 to "The Infinity Saga",
+        776 to "Pokemon"
     )
 
     override fun onCreateView(
@@ -47,9 +50,7 @@ class MisLegosFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         binding.recylerViewLegos.layoutManager = LinearLayoutManager(requireContext())
-
         cargarThemesYSpinner()
     }
 
@@ -58,8 +59,6 @@ class MisLegosFragment : Fragment() {
             try {
                 val categoriasGuardadas =
                     LegoApplication.database.legoDao().getSavedThemeIds()
-
-                Log.d("DB_TEST", "Theme IDs guardados: $categoriasGuardadas")
 
                 if (categoriasGuardadas.isEmpty()) {
                     Toast.makeText(requireContext(), "No tienes legos guardados", Toast.LENGTH_SHORT).show()
@@ -70,7 +69,6 @@ class MisLegosFragment : Fragment() {
 
                 val themesResponse = RetrofitInstance.api.getThemes(limit = 1000)
                 themesMap = themesResponse.results.associate { it.id to it.name }
-                Log.d("SPINNER_DEBUG", "themesMap: $themesMap")
 
                 themeIdsOrdered = categoriasUnicas
                 spinnerItems = themeIdsOrdered.map { id ->

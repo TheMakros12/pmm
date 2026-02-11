@@ -18,6 +18,11 @@ interface LegoApiServices {
                                @Query("page_size") pageSize: Int = 60,
                                @Query("ordering") order: String = "-year,-set_num"): LegoApiResponse
 
+    @GET("sets/{set_num}/")
+    suspend fun getSetDetail(
+        @Path("set_num") setNum: String
+    ): LegoResponse
+
     @GET("sets/{set_num}/parts")
     suspend fun getPiezas(
         @Path("set_num") setNum: String,

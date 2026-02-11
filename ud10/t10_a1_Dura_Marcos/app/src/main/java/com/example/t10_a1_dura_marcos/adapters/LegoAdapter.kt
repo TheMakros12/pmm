@@ -12,7 +12,8 @@ import com.squareup.picasso.Picasso
 
 class LegoAdapter(private val legos: MutableList<LegoResponse>,
                   private val themes: Map<Int, String>,
-                  private val onGuardarClick: (LegoResponse) -> Unit
+                  private val onGuardarClick: (LegoResponse) -> Unit,
+                  private val onItemClick: (LegoResponse) -> Unit
 ): RecyclerView.Adapter<LegoAdapter.ViewHolder>() {
 
     private lateinit var context: Context
@@ -45,6 +46,10 @@ class LegoAdapter(private val legos: MutableList<LegoResponse>,
 
             binding.btnGuardarLego.setOnClickListener {
                 onGuardarClick(lego)
+            }
+
+            itemView.setOnClickListener {
+                onItemClick(lego)
             }
         }
     }

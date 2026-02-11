@@ -80,37 +80,61 @@ class PerfilFragment : Fragment() {
     }
 
     private fun mostrarDialogoDeleteAll() {
-        AlertDialog.Builder(requireContext())
-            .setTitle("Eliminar todos los sets")
-            .setMessage("Esta acción eliminará todos los legos guardados. ¿Deseas continuar?")
-            .setPositiveButton("Eliminar") { _, _ ->
-                lifecycleScope.launch {
-                    val deleted = LegoApplication.database.legoDao().deleteAllSets()
-                    Toast.makeText(requireContext(), "Se han eliminado $deleted sets", Toast.LENGTH_SHORT).show()
-                    cargarTotales()
+        lifecycleScope.launch {
+            try {
+                val totalSets = LegoApplication.database.legoDao().getTotalSets()
+
+                if (totalSets > 0) {
+                    AlertDialog.Builder(requireContext())
+                        .setTitle("Eliminar todos los sets")
+                        .setMessage("Esta acción eliminará todos los legos guardados. ¿Deseas continuar?")
+                        .setPositiveButton("Eliminar") { _, _ ->
+                            lifecycleScope.launch {
+                                val deleted = LegoApplication.database.legoDao().deleteAllSets()
+                                Toast.makeText(requireContext(), "Se han eliminado $deleted sets", Toast.LENGTH_SHORT).show()
+                                cargarTotales()
+                            }
+                        }
+                        .setNegativeButton("Cancelar", null)
+                        .setIcon(R.drawable.ic_lego)
+                        .show()
+                } else {
+                    Toast.makeText(requireContext(), "No hay datos guardados!!!", Toast.LENGTH_SHORT).show()
                 }
+            } catch (e: Exception) {
+                Toast.makeText(requireContext(), "Error cargando totales", Toast.LENGTH_SHORT).show()
             }
-            .setNegativeButton("Cancelar", null)
-            .setIcon(R.drawable.ic_lego)
-            .show()
+        }
     }
 
     private fun mostrarDialogoDelete() {
-        val id = binding.etBorrarLego.text.toString() + "-1"
+        lifecycleScope.launch {
+            try {
+                val totalSets = LegoApplication.database.legoDao().getTotalSets()
 
-        AlertDialog.Builder(requireContext())
-            .setTitle("Eliminar set con Id: $id")
-            .setMessage("Esta acción eliminará el set $id. ¿Deseas continuar?")
-            .setPositiveButton("Eliminar") { _, _ ->
-                lifecycleScope.launch {
-                    val deleted = LegoApplication.database.legoDao().deleteSetById(id)
-                    Toast.makeText(requireContext(), "Se han eliminado $deleted sets", Toast.LENGTH_SHORT).show()
-                    cargarTotales()
+                if (totalSets > 0) {
+                    val id = binding.etBorrarLego.text.toString() + "-1"
+
+                    AlertDialog.Builder(requireContext())
+                        .setTitle("Eliminar set con Id: $id")
+                        .setMessage("Esta acción eliminará el set $id. ¿Deseas continuar?")
+                        .setPositiveButton("Eliminar") { _, _ ->
+                            lifecycleScope.launch {
+                                val deleted = LegoApplication.database.legoDao().deleteSetById(id)
+                                Toast.makeText(requireContext(), "Se han eliminado $deleted sets", Toast.LENGTH_SHORT).show()
+                                cargarTotales()
+                            }
+                        }
+                        .setNegativeButton("Cancelar", null)
+                        .setIcon(R.drawable.ic_lego)
+                        .show()
+                } else {
+                    Toast.makeText(requireContext(), "No hay datos guardados!!!", Toast.LENGTH_SHORT).show()
                 }
+            } catch (e: Exception) {
+                Toast.makeText(requireContext(), "Error cargando totales", Toast.LENGTH_SHORT).show()
             }
-            .setNegativeButton("Cancelar", null)
-            .setIcon(R.drawable.ic_lego)
-            .show()
+        }
     }
 
 }

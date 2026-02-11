@@ -43,4 +43,10 @@
     <string name="txtTvNumPiezaLego">Nª de Pieza</string>
     <string name="txtTvPiezasLegoSet">Nº de piezas en set</string>
     <string name="txtTvListadoPiezas">Listado de Piezas</string>
+    <string name="txtTvNombreDelLego">Nombre del Lego</string>
+    <string name="txtTvAnyoSalida">"Año de salida: "</string>
+    <string name="txtTvAnyoSalidaInfo">xxxx</string>
+    <string name="txtTvPrecioEstimado">"Precio estimado: "</string>
+    <string name="txtTvPrecioEstimadoInfo">xx.xx€</string>
+    <string name="txtTvInfoLego">Información del Lego</string>
 </resources>

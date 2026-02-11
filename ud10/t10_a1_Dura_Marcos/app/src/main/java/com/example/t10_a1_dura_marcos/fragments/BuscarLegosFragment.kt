@@ -19,12 +19,11 @@ import com.example.t10_a1_dura_marcos.database.LegoApplication
 import com.example.t10_a1_dura_marcos.databinding.FragmentBuscarLegosBinding
 import kotlinx.coroutines.launch
 
-
 class BuscarLegosFragment : Fragment() {
 
     private lateinit var binding: FragmentBuscarLegosBinding
     private lateinit var legoAdapter: LegoAdapter
-    private val categorias = arrayOf("Technic", "Speed Champions", "Icons", "Star Wars", "Botanicals", "Marvel")
+    private val categorias = arrayOf("Technic", "Speed Champions", "Icons", "Star Wars", "Botanicals", "Marvel", "Nike", "The Infinity Saga", "Pokemon")
     private lateinit var themes: Map<Int, String>
     private val themesId = mapOf(
         "Technic" to 1,
@@ -32,7 +31,10 @@ class BuscarLegosFragment : Fragment() {
         "Icons" to 721,
         "Star Wars" to 171,
         "Botanicals" to 769,
-        "Marvel" to 702
+        "Marvel" to 702,
+        "Nike" to 785,
+        "The Infinity Saga" to 781,
+        "Pokemon" to 776
     )
 
     private val localThemesMap = mapOf(
@@ -41,7 +43,10 @@ class BuscarLegosFragment : Fragment() {
         721 to "Icons",
         171 to "Star Wars",
         769 to "Botanicals",
-        702 to "Marvel"
+        702 to "Marvel",
+        785 to "Nike",
+        781 to "The Infinity Saga",
+        776 to "Pokemon"
     )
 
     override fun onCreateView(
@@ -67,9 +72,16 @@ class BuscarLegosFragment : Fragment() {
     }
 
     private fun setupRecyclerView() {
-        legoAdapter = LegoAdapter(mutableListOf(), themes) { lego ->
-            guardarLego(lego)
-        }
+        legoAdapter = LegoAdapter(
+            mutableListOf(),
+            themes,
+            onGuardarClick = { lego ->
+                guardarLego(lego)
+            },
+            onItemClick = { lego ->
+                mostrarDetalleLego(lego)
+            })
+
         binding.recylerViewLegos.adapter = legoAdapter
     }
 
@@ -144,8 +156,14 @@ class BuscarLegosFragment : Fragment() {
                 }
             } catch (e: Exception) {
                 Toast.makeText(requireContext(), "Error guardando el Lego", Toast.LENGTH_SHORT).show()
+                Log.e("Error Guardado", "$e")
             }
         }
+    }
+
+    private fun mostrarDetalleLego(lego: LegoResponse) {
+        val bottomSheet = DetalleLegoFragment.newInstance(lego.set_num)
+        bottomSheet.show(parentFragmentManager, "LegoDetailBottomSheet")
     }
 
 }
