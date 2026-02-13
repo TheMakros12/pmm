@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Ejemplo_API_HarryPotter</string>
+    <string name="txtBtnCargarPersonaje">Cargar Personaje</string>
+    <string name="txtContentDescriptionIVPersonaje">Imagen del Personaje</string>
+    <string name="txtContentDescriptionIvPersonaje">Imagen del Personaje</string>
+    <string name="txttvNombrePersonaje">Nombre Personaje</string>
+    <string name="txttvCasaPersonaje">Casa personaje</string>
+</resources>

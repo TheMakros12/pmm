@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">reto05_Dragon_Ball</string>
+    <string name="txtContentDescriptionIvImage">Character Image</string>
+    <string name="txtContentDescriptionIvImageCharacter">Character Image</string>
+    <string name="txtTvNameCharacter">Character Name</string>
+    <string name="txtTvRaceCharacter">Race Character</string>
+</resources>
