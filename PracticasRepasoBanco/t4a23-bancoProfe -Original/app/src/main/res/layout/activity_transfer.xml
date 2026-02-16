@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.TransferActivity"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/tvRealizarTransferencia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/txtTvRealizarTransferencia"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:id="@+id/tvCuentaOrigen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvRealizarTransferencia"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"
+        android:text="@string/txtTvCuentaOrigen"
+        />
+
+    <Spinner
+        android:id="@+id/spinnerCuentaOrigen"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/heightSpinner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvCuentaOrigen"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <Space
+        android:id="@+id/space0"
+        android:layout_width="match_parent"
+        android:layout_height="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/spinnerCuentaOrigen"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/tvCuentaDestino"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/space0"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/txtTvCuentaDestino"
+        />
+
+    <RadioButton
+        android:id="@+id/rdBtnCuentaPropia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvCuentaDestino"
+        android:layout_marginTop="10dp"
+        android:text="@string/txtRdBtnCuentaPropia"
+        />
+
+    <RadioButton
+        android:id="@+id/rdBtnCuentaAjena"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/rdBtnCuentaPropia"
+        app:layout_constraintTop_toBottomOf="@id/tvCuentaDestino"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="40dp"
+        android:text="@string/txtRdBtnCuentaPropia"
+        />
+
+    <Spinner
+        android:id="@+id/spinnerCuentaPropia"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/heightSpinner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rdBtnCuentaPropia"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tiLayoutCuentaAjena"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rdBtnCuentaPropia"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:hint="@string/txtHintImporte"
+        app:endIconMode="clear_text"
+        android:visibility="gone"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tiCuentaAjena"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:textStyle="bold"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Space
+        android:id="@+id/space1"
+        android:layout_width="match_parent"
+        android:layout_height="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/spinnerCuentaPropia"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/tvImporteYDivisa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/space1"
+        android:text="@string/txtTvImporteYDivisa"
+        />
+
+    <LinearLayout
+        android:id="@+id/layoutImporte"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvImporteYDivisa"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tiLayoutImporte"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:hint="@string/txtHintImporte"
+            app:endIconMode="clear_text"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tiImporte"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:textStyle="bold"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+        
+        <Spinner
+            android:id="@+id/spinnerDivisa"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/heightSpinner"
+            android:layout_weight="2"
+            />
+
+    </LinearLayout>
+
+    <CheckBox
+        android:id="@+id/chBoxEnviarJustificante"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layoutImporte"
+        android:layout_marginTop="10dp"
+        android:text="@string/txtChBoxEnviarJustificante"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
