@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Ejemplo_API_Rick_Morty</string>
+    <string name="txtTvNameCharacter">Nombre</string>
+    <string name="txtContentDescriptionIvImageCharacter">Imagen del Personaje</string>
+    <string name="txtTvLblStatusCharacter">"Status: "</string>
+    <string name="txtTvStatusCharacter">Status</string>
 </resources>
