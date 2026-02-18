@@ -73,4 +73,15 @@
     <string name="txtHintImporte">Importe</string>
     <string name="txtChBox">Enviar Justificante</string>
     <string name="txtChBoxEnviarJustificante">Enviar Justificante</string>
+    <string name="txtBtnEnviar">ENVIAR</string>
+    <string name="txtBtnCancelar">CANCELAR</string>
+    <string name="txtRdBtnCuentaAjena">Cuenta Ajena</string>
+
+    <string-array name="cuentas_array">
+        <item>ES12 1234 5678 9012 3456 7890</item>
+        <item>ES98 8765 4321 0987 6543 2100</item>
+        <item>ES45 1111 2222 3333 4444 5555</item>
+        <item>ES45 5555 4444 3333 2222 1111</item>
+    </string-array>
+
 </resources>
