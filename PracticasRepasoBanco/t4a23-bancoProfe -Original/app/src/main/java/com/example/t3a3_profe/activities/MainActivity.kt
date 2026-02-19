@@ -27,7 +27,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.btnTransferencias?.setOnClickListener {
-            Toast.makeText(this, "Funcionalidad no implementada", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, TransferActivity::class.java)
+            startActivity(intent)
         }
 
         binding.btnCambiarClave?.setOnClickListener {

@@ -1,73 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.TransferActivity"
-    android:padding="10dp">
+    android:padding="16dp"
+    android:fitsSystemWindows="true"
+    tools:context=".activities.TransferActivity">
 
+    <!-- TÍTULO -->
     <TextView
         android:id="@+id/tvRealizarTransferencia"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:text="@string/txtTvRealizarTransferencia"
-        android:gravity="center"
         android:textSize="18sp"
         android:textStyle="bold"
-        />
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- CUENTA ORIGEN -->
     <TextView
         android:id="@+id/tvCuentaOrigen"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvRealizarTransferencia"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="10dp"
         android:text="@string/txtTvCuentaOrigen"
-        />
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/tvRealizarTransferencia"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Spinner
         android:id="@+id/spinnerCuentaOrigen"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="@dimen/heightSpinner"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvCuentaOrigen"
-        app:layout_constraintEnd_toEndOf="parent"
-        />
-
-    <Space
-        android:id="@+id/space0"
-        android:layout_width="match_parent"
-        android:layout_height="12dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/spinnerCuentaOrigen"
-        app:layout_constraintEnd_toEndOf="parent"
-        />
+        app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- CUENTA DESTINO -->
     <TextView
         android:id="@+id/tvCuentaDestino"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/space0"
-        app:layout_constraintEnd_toEndOf="parent"
         android:text="@string/txtTvCuentaDestino"
-        />
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/spinnerCuentaOrigen"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <RadioGroup
         android:id="@+id/radioGroupDestino"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvCuentaDestino"
         android:orientation="horizontal"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/tvCuentaDestino"
+        app:layout_constraintStart_toStartOf="parent">
 
         <RadioButton
             android:id="@+id/rdBtnCuentaPropia"
@@ -81,66 +74,62 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
             android:text="@string/txtRdBtnCuentaAjena" />
-
     </RadioGroup>
 
-    <Spinner
-        android:id="@+id/spinnerCuentaPropia"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/heightSpinner"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/radioGroupDestino"
-        app:layout_constraintEnd_toEndOf="parent"
-        />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tiLayoutCuentaAjena"
-        android:layout_width="match_parent"
+    <!-- CONTENEDOR DESTINO (CLAVE PARA QUE NO SE SUPERPONGA NADA) -->
+    <FrameLayout
+        android:id="@+id/containerDestino"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="12dp"
         app:layout_constraintTop_toBottomOf="@id/radioGroupDestino"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:hint="@string/txtHintImporte"
-        app:endIconMode="clear_text"
-        android:visibility="gone"
-        >
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/tiCuentaAjena"
+        <Spinner
+            android:id="@+id/spinnerCuentaPropia"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/heightSpinner" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tiLayoutCuentaAjena"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
-            android:textStyle="bold"
-            />
+            android:hint="@string/txtHintCuentaAjena"
+            android:visibility="gone"
+            app:endIconMode="clear_text">
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tiCuentaAjena"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:textStyle="bold" />
 
-    <Space
-        android:id="@+id/space1"
-        android:layout_width="match_parent"
-        android:layout_height="12dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/spinnerCuentaPropia"
-        app:layout_constraintEnd_toEndOf="parent"
-        />
+        </com.google.android.material.textfield.TextInputLayout>
 
+    </FrameLayout>
+
+    <!-- IMPORTE -->
     <TextView
         android:id="@+id/tvImporteYDivisa"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/space1"
         android:text="@string/txtTvImporteYDivisa"
-        />
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/containerDestino"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <LinearLayout
         android:id="@+id/layoutImporte"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@id/tvImporteYDivisa"
-        app:layout_constraintEnd_toEndOf="parent"
-        >
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tiLayoutImporte"
@@ -148,73 +137,59 @@
             android:layout_height="wrap_content"
             android:layout_weight="4"
             android:hint="@string/txtHintImporte"
-            app:endIconMode="clear_text"
-            >
+            app:endIconMode="clear_text">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/tiImporte"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text"
-                android:textStyle="bold"
-                />
-
+                android:inputType="numberDecimal"
+                android:textStyle="bold" />
         </com.google.android.material.textfield.TextInputLayout>
-        
+
         <Spinner
             android:id="@+id/spinnerDivisa"
             android:layout_width="0dp"
             android:layout_height="@dimen/heightSpinner"
-            android:layout_weight="2"
-            />
-
+            android:layout_weight="2" />
     </LinearLayout>
 
+    <!-- CHECKBOX -->
     <CheckBox
         android:id="@+id/chBoxEnviarJustificante"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/layoutImporte"
-        android:layout_marginTop="10dp"
         android:text="@string/txtChBoxEnviarJustificante"
-        />
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/layoutImporte"
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <Space
-        android:id="@+id/space2"
-        android:layout_width="match_parent"
-        android:layout_height="36dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/chBoxEnviarJustificante"
-        app:layout_constraintEnd_toEndOf="parent"
-        />
-
+    <!-- BOTONES -->
     <LinearLayout
-        android:layout_width="match_parent"
+        android:id="@+id/layoutBotones"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:layout_marginTop="30dp"
+        app:layout_constraintTop_toBottomOf="@id/chBoxEnviarJustificante"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/space2"
         app:layout_constraintEnd_toEndOf="parent">
 
         <Button
             android:id="@+id/btnEnviar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
+            android:layout_weight="1"
             android:text="@string/txtBtnEnviar"
-            android:layout_marginEnd="10dp"
-            />
+            android:layout_marginEnd="8dp"/>
 
         <Button
             android:id="@+id/btnCancelar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
+            android:layout_weight="1"
             android:text="@string/txtBtnCancelar"
-            android:layout_marginStart="10dp"
-            />
-
+            android:layout_marginStart="8dp"/>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
