@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">ejemploExamen</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="txtContentDescriptionIvImgCharacter">Imagen del Personaje</string>
+    <string name="txtTvNameCharacter">Nombre</string>
+    <string name="txtTvStatusCharacter">"Status: "</string>
+    <string name="txtTvSpeciesCharacter">"Species: "</string>
+    <string name="txtTvEstado">Aquí aparecerán los datos...</string>
+</resources>
