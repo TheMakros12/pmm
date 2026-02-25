@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Reto_06_Futurama</string>
+    <string name="txtBtnBender">Bender</string>
+    <string name="txtBtnFry">Fry</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="txtContentDescriptionIvFuturama">Imagen del Logo de Futurama</string>
+    <string name="txtTvNombrePersonaje">NOMBRE PERSONAJE</string>
+    <string name="txtTvDescripcionPersonaje">Desccripción personaje</string>
+</resources>
