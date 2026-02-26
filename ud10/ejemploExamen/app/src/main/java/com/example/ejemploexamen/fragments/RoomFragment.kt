@@ -1,13 +1,14 @@
 package com.example.ejemploexamen.fragments
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
-import com.example.ejemploexamen.R
-import com.example.ejemploexamen.activities.adapter.CharacterAdapter
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.ejemploexamen.adapter.CharacterAdapter
 import com.example.ejemploexamen.api.Character
 import com.example.ejemploexamen.database.AppDatabase
 import com.example.ejemploexamen.database.CharacterApplication
@@ -41,13 +42,14 @@ class RoomFragment : Fragment() {
             lifecycleScope.launch {
                 try {
                     val lista = db.characterDao().getAll()
+                    Log.e("ROOM_TEST", "Cantidad ${lista.size}")
 
                     if ( lista.isEmpty() ) {
                         binding.tvEstado.text = "No hay datos"
+                    } else {
+                        binding.tvEstado.text = "Mostrando datos..."
+                        cargarRecyclerView(lista)
                     }
-
-                    binding.tvEstado.text = "Mostrando datos..."
-                    cargarRecyclerView(lista)
                 } catch (e: Exception) {
                     binding.tvEstado.text = "Error!!!"
                 }
@@ -61,6 +63,7 @@ class RoomFragment : Fragment() {
 
     private fun cargarRecyclerView(lista: List<Character>) {
         adapter = CharacterAdapter(lista)
+        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerView.adapter = adapter
     }
 

@@ -1,4 +1,4 @@
-package com.example.ejemploexamen.activities.adapter
+package com.example.ejemploexamen.adapter
 
 import android.content.Context
 import android.view.LayoutInflater

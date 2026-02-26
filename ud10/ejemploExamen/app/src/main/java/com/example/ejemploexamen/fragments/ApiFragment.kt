@@ -57,6 +57,8 @@ class ApiFragment : Fragment() {
                 val lista = response.results
 
                 db.characterDao().insertAll(lista)
+
+                binding.tvEstado.text = "Datos Guardados!!!"
             } catch (e: Exception) {
                 binding.tvEstado.text = "ERROR!!! ${e.message}"
             }
