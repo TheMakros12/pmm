@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Examen2_Dura_Marcos</string>
+    <string name="txtNavigationCharacters">Personajes</string>
+    <string name="txtNavigationEpisodes">Episodios</string>
+    <string name="txtNavigationInfo">Info</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="txtContentDescriptionIvImageCharacter">Imagen del Personaje</string>
+    <string name="txtTvNameCharac">Nombre del Personaje</string>
+    <string name="txtTvNameCharacter">Nombre Del Personaje</string>
+    <string name="txtTvStatusCharacter">"Status: "</string>
+    <string name="txtTvOcupationCharacter">"Ocupation: "</string>
+    <string name="txtTvNameEpisode">Nombre del Episodio</string>
+    <string name="txtTvSeassonEpisode">"Temporada: "</string>
+    <string name="txtTvSinopsisE">Aquí iría la sinopsis del Episodio</string>
+    <string name="txtTvSinopsisEpisode">Sinopsis del Episodio</string>
+    <string name="txtBtnGuardarFirebase">Guardar en Firebase</string>
+</resources>
