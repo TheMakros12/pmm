@@ -38,10 +38,6 @@ class CharactersFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         personajes = emptyList()
-        binding.root.setBackgroundColor(Color.WHITE)
-        binding.ivImagenSimpsons.visibility = View.GONE
-        binding.recyclerViewCharacters.visibility = View.VISIBLE
-        cargarPersonajes()
     }
 
     private fun cargarPersonajes() {
@@ -60,6 +56,15 @@ class CharactersFragment : Fragment() {
             } catch (e: Exception) {
                 Log.e("ERROR_RETROFIT", "Error al obtener Characters")
             }
+        }
+    }
+
+    fun mostrarLista() {
+        binding.ivImagenSimpsons.visibility = View.GONE
+        binding.recyclerViewCharacters.visibility = View.VISIBLE
+
+        if (personajes.isEmpty()) {
+            cargarPersonajes()
         }
     }
 

@@ -22,23 +22,30 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        if (savedInstanceState == null) {
+            replaceFragment(CharactersFragment())
+        }
+
         binding.bottomNavigationBar.setOnItemSelectedListener { item ->
             when(item.itemId) {
                 R.id.navigation_personajes -> {
                     replaceFragment(CharactersFragment())
+                    binding.fragmentContainer.post {
+                        (supportFragmentManager.findFragmentById(R.id.fragmentContainer) as? CharactersFragment)
+                            ?.mostrarLista()
+                    }
                     true
                 }
                 R.id.navigation_episodios -> {
                     replaceFragment(EpisodesFragment())
                     true
                 }
-                R.id.navigation_personajes -> {
+                R.id.navigation_info -> {
                     replaceFragment(InfoFragment())
                     true
                 }
                 else -> false
             }
-
         }
     }
 

@@ -50,7 +50,7 @@ class IncidenciasFragment : Fragment() {
     }
 
     private fun borrarDatos() {
-        binding.etNombreIncidencia.text.clear()
+        binding.spinnerEspacioIncidencia.setSelection(0)
         binding.etDescripcionIncidencias.text.clear()
     }
 

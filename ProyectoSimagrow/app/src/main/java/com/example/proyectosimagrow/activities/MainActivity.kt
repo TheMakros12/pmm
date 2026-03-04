@@ -4,12 +4,13 @@ import android.os.Bundle
 import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.transition.Visibility
+import androidx.fragment.app.Fragment
 import com.example.proyectosimagrow.R
 import com.example.proyectosimagrow.databinding.ActivityMainBinding
-import com.example.proyectosimagrow.fragments.FilamentosFragment
+import com.example.proyectosimagrow.fragments.RecompensasFragment
 import com.example.proyectosimagrow.fragments.IncidenciasFragment
-import com.example.proyectosimagrow.fragments.PerfilFragment
+import com.example.proyectosimagrow.fragments.NoticiasFragment
+import com.example.proyectosimagrow.pojo.Recompensa
 import com.example.proyectosimagrow.pojo.User
 import com.google.gson.Gson
 
@@ -33,44 +34,23 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.bottomNavView.selectedItemId = R.id.menuIncidencias
-        binding.tvUsernameUser.text = user?.username.toString()
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.fragmentContainer, IncidenciasFragment())
-            .commit()
+        replaceFragment(IncidenciasFragment())
 
         binding.bottomNavView.setOnItemSelectedListener {
             item ->
             when(item.itemId) {
-                R.id.menuIncidencias -> lanzarFragmentIncidencias()
-                R.id.menuPremios -> lanzarFragmentPremios()
-                R.id.menuPerfil -> lanzarFragmentPerfil()
+                R.id.menuIncidencias -> replaceFragment(IncidenciasFragment())
+                R.id.menuRecompensas -> replaceFragment(RecompensasFragment())
+                R.id.menuPerfil -> replaceFragment(NoticiasFragment())
             }
             true
         }
 
     }
 
-    private fun lanzarFragmentPremios() {
-        binding.cardViewUser.visibility = View.GONE
+    private fun replaceFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.fragmentContainer, FilamentosFragment())
-            .addToBackStack(null)
-            .commit()
-    }
-
-    private fun lanzarFragmentIncidencias() {
-        binding.cardViewUser.visibility = View.VISIBLE
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.fragmentContainer, IncidenciasFragment())
-            .addToBackStack(null)
-            .commit()
-    }
-
-    private fun lanzarFragmentPerfil() {
-        binding.cardViewUser.visibility = View.GONE
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.fragmentContainer, PerfilFragment())
-            .addToBackStack(null)
+            .replace(R.id.fragmentContainer, fragment)
             .commit()
     }
 

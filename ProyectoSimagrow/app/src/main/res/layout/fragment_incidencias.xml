@@ -5,8 +5,7 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.IncidenciasFragment"
-    android:orientation="vertical"
-    android:padding="20dp">
+    android:orientation="vertical">
 
     <Space
         android:layout_width="match_parent"
@@ -18,7 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/txtIncidencia"
-        android:textSize="20sp"
+        android:textSize="24sp"
         android:textStyle="bold"
         android:gravity="center"
         android:textColor="@color/simagrow"
@@ -26,21 +25,15 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="12dp"
+        android:layout_height="24dp"
         />
 
-    <EditText
-        android:id="@+id/etNombreIncidencia"
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:hint="@string/txtHintNombreIncidencia"
-        android:inputType="text"
-        android:autofillHints="name"
-        />
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="12dp"
+        android:layout_height="wrap_content"
+        android:text="@string/txtTvSeleccionaLugar"
+        android:textSize="16sp"
+        android:layout_marginBottom="5dp"
         />
 
     <Spinner
@@ -51,7 +44,7 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="12dp"
+        android:layout_height="34dp"
         />
 
     <EditText

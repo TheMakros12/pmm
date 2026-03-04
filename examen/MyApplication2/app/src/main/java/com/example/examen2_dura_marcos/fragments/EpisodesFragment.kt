@@ -50,7 +50,7 @@ class EpisodesFragment : Fragment() {
                 val response = RetrofitInstance.api.getEpisodes()
                 val episodes = response.results
 
-                //database.episodeDao().insertAll(episodes)
+                database.episodeDao().insertAll(episodes)
             } catch (e: Exception) {
                 Log.e("ERROR", "Error al guardar los episodios")
             }
@@ -59,15 +59,15 @@ class EpisodesFragment : Fragment() {
 
     private fun cargarRecylcerView() {
         lifecycleScope.launch {
-            //val episodios = database.episodeDao().getAll()
+            val episodios = database.episodeDao().getAll()
 
-            /*if (episodios.isNotEmpty()) {
+            if (episodios.isNotEmpty()) {
                 adapter = EpisodesAdapter(episodios)
                 binding.recyclerViewEpisodes.layoutManager = LinearLayoutManager(requireContext())
                 binding.recyclerViewEpisodes.adapter = adapter
             } else {
                 Log.e("ERROR", "Error cargando recylcer")
-            }*/
+            }
         }
 
     }

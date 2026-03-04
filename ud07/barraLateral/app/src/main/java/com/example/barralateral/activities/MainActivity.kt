@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         enableEdgeToEdge()
 
         binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(R.layout.activity_main)
+        setContentView(binding.root)
 
         setSupportActionBar(binding.toolBarInclude.myToolBar)
 
@@ -61,9 +61,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         soundPlayer = SoundPlayer(this)
         soundPlayer.reproducirSonido(R.raw.sonido)
 
-        val imageView: ImageView = findViewById(R.id.imagen)
+        /*val imageView: ImageView = findViewById(R.id.imagen)
         val imagenUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRpySUyYacEagYCF2lB4T4Ol2CKvC8FPYXUw&s"
-        Picasso.get().load(imagenUrl).into(imageView)
+        Picasso.get().load(imagenUrl).into(imageView)*/
 
         vibrador = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
         if (!vibrador.hasVibrator()) {
@@ -72,12 +72,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             vibrador.vibrate(1000)
         }
 
-    }
-
-    private fun replaceFragment(fragment: Fragment) {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, fragment)
-            .commit()
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
@@ -91,6 +85,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
         binding.drawerLayout.closeDrawer(GravityCompat.START)
         return true
+    }
+
+    private fun replaceFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, fragment)
+            .commit()
     }
 
 }
