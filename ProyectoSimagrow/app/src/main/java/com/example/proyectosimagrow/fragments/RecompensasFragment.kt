@@ -17,7 +17,7 @@ class RecompensasFragment : Fragment() {
     private lateinit var binding: FragmentRecompensasBinding
     private lateinit var adapterFilamento: RecompensaAdapter
     private lateinit var linearLayoutManager: LinearLayoutManager
-    private lateinit var recompensas : ArrayList<String>
+    private val recompensas = arrayOf("Filamentos", "Snacks", "Merchandising")
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,8 +35,6 @@ class RecompensasFragment : Fragment() {
     }
 
     private fun cargarSpinner() {
-        recompensas = resources.getStringArray(com.example.proyectosimagrow.R.array.Recompensas_filter) as ArrayList<String>
-
         val adapter = ArrayAdapter(requireContext(), R.layout.simple_spinner_item, recompensas)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding.spinnerRecompensas.adapter = adapter
@@ -46,7 +44,8 @@ class RecompensasFragment : Fragment() {
         val selected = recompensas[position]
         adapterFilamento = RecompensaAdapter(arrayOf())
         binding.recyclerViewFilamentos.adapter = adapterFilamento
-        binding.recyclerViewFilamentos.layoutManager = LinearLayoutManager(requireContext())
+        linearLayoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+        binding.recyclerViewFilamentos.layoutManager = linearLayoutManager
     }
 
 }

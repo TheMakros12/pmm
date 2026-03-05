@@ -52,6 +52,21 @@
     <string name="txtTvNombreUsuario">Nombre del Usuasrio</string>
     <string name="txtTvCorreoUsuario">correodelusuario@alu.edu.gva.es</string>
     <string name="txtContentDescriptionIvLogoSimarro">Imagen del Logo del IES Lluis Simarro</string>
+    <string name="txtTvIdIncidencia">1</string>
+    <string name="txtTvNombreIncidencia">Nombre de la Incidencia</string>
+    <string name="txtTvEstadoIncidencia">"Estado: "</string>
+    <string name="txtTvTextoIncidencias">Aquí se muestra tus incidencias</string>
+    <string name="txtTvDatosIncidencias">No tienes incidencias todavía</string>
+    <string name="txtDrawerMenuItemCerrarSesion">Cerrar Sesión</string>
+    <string name="txtDrawerMenuItemHome">Home</string>
+    <string name="txtDrawerMenuItemPerfil">Perfil</string>
+    <string name="txtDrawerMenuItemConfiguracion">Configuración</string>
+    <string name="navigation_drawer_open">Abrir Menú</string>
+    <string name="navigation_drawer_close">Cerrar Menú</string>
+    <string name="txtDrawerMenuItemIncidendias">Incidencias</string>
+    <string name="txtDrawerMenuItemNuevaIncidendia">Nueva Incidencia</string>
+    <string name="txtDrawerMenuItemRecompensas">Recompensas</string>
+    <string name="txtDrawerMenuItemNoticias">Noticias</string>
     <string-array name="inicidencias_filter">
         <item>Todas</item>
         <item>Resueltas</item>

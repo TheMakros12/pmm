@@ -1,26 +1,33 @@
 package com.example.proyectosimagrow.fragments
 
 import android.os.Bundle
+import android.text.Layout
+import android.text.SpannableString
+import android.text.style.AlignmentSpan
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.Spinner
-import android.widget.Toast
-import com.example.proyectosimagrow.R
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.proyectosimagrow.adapters.IncidenciaAdapter
 import com.example.proyectosimagrow.databinding.FragmentIncidenciasBinding
+import com.example.proyectosimagrow.pojo.Incidencia
 
 class IncidenciasFragment : Fragment() {
 
     private lateinit var binding: FragmentIncidenciasBinding
-    private var espacios = arrayOf("AULA", "PATIO", "BAÑOS", "HALL", "PABELLÓN")
+    private lateinit var incidenciaAdapter: IncidenciaAdapter
+    private lateinit var linearLayoutManager: LinearLayoutManager
+    private lateinit var dividerDecoration: DividerItemDecoration
+    private val estados = arrayOf("Todas", "Resueltas", "No resueltas")
+    private val incidencias = emptyArray<Incidencia>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentIncidenciasBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -28,30 +35,60 @@ class IncidenciasFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val adapter = ArrayAdapter(
-            requireContext(),
-            android.R.layout.simple_spinner_item,
-            espacios
-        )
+        cargarSpinner()
+        cargarRecyclerView()
 
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        binding.spinnerEspacioIncidencia.adapter = adapter
-
-        binding.btnBorrar.setOnClickListener {
-            borrarDatos()
-            Toast.makeText(requireContext(), "Has borrado los datos!!", Toast.LENGTH_SHORT).show()
+        if ( incidencias.isEmpty() ) {
+            binding.tvDatosIncidencias.visibility = View.GONE
         }
-
-        binding.btnEnviarIncidencia.setOnClickListener {
-            borrarDatos()
-            Toast.makeText(requireContext(), "Has enviado una nueva Incidencia!!", Toast.LENGTH_SHORT).show()
-        }
-
     }
 
-    private fun borrarDatos() {
-        binding.spinnerEspacioIncidencia.setSelection(0)
-        binding.etDescripcionIncidencias.text.clear()
+    private fun cargarSpinner() {
+        val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, estados)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        binding.spinnerEstadosIncidencias.adapter = adapter
+    }
+
+    private fun cargarRecyclerView() {
+        incidenciaAdapter = IncidenciaAdapter(Incidencia.INCIDENCIAS, onItemClick = {incidencia -> mostrarDetalleIncidencia(incidencia)})
+        linearLayoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+        dividerDecoration = DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL)
+        binding.recyclerViewIncidencias.apply {
+            adapter = incidenciaAdapter
+            layoutManager = linearLayoutManager
+            addItemDecoration(dividerDecoration)
+        }
+    }
+
+    private fun mostrarDetalleIncidencia(incidencia: Incidencia) {
+        val titulo = SpannableString("Detalle de la Incidencia")
+        titulo.setSpan(AlignmentSpan.Standard(Layout.Alignment.ALIGN_CENTER), 0, titulo.length, 0)
+
+        val estadoTexto = if (incidencia.estado) "Resuelta" else "Pendiente"
+
+        val mensaje = """
+            Id Incidenida:
+            ${incidencia.id}
+            
+            Título:
+            ${incidencia.nombre}
+            
+            Descripción:
+            ${incidencia.descripcion}
+            
+            Estado: $estadoTexto
+        """.trimIndent()
+
+        com.google.android.material.dialog.MaterialAlertDialogBuilder(requireContext())
+            .setTitle(titulo)
+            .setMessage(mensaje)
+            .setPositiveButton("Eliminar") { dialog, _ ->
+                dialog.dismiss()
+            }
+            .setNegativeButton("Salir") { dialog, _ ->
+                dialog.dismiss()
+            }
+            .show()
     }
 
 }
