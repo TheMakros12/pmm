@@ -12,6 +12,8 @@ import com.google.gson.Gson
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
+    private val USER = "10639258"
+    private val PASSWORD = "dur020802"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,10 +22,13 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btnEntrarLogin.setOnClickListener {
-            val username: String = binding.etUser.text.toString()
-            val password: String = binding.etPassword.text.toString()
-            val user = User(username, password)
-            login(user)
+            if (validarLogin()) {
+                val username = binding.etUser.text.toString().trim()
+                val password = binding.etPassword.text.toString().trim()
+
+                val user = User(username, password)
+                login(user)
+            }
         }
 
     }
@@ -34,6 +39,36 @@ class LoginActivity : AppCompatActivity() {
             putExtra("user", usuarioLogin)
         }
         startActivity(intentMainActivity)
+        finish()
+    }
+
+    private fun validarLogin(): Boolean {
+        val username = binding.etUser.text.toString().trim()
+        val password = binding.etPassword.text.toString().trim()
+
+        binding.tilUser.error = null
+        binding.tilPassword.error = null
+
+        var esValido = true
+
+        if (username.isEmpty()) {
+            binding.tilUser.error = "El usuario es obligatorio"
+            esValido = false
+        }
+
+        if (password.isEmpty()) {
+            binding.tilPassword.error = "La contraseña es obligatoria"
+            esValido = false
+        }
+
+        if (!esValido) return false
+
+        if (username != USER || password != PASSWORD) {
+            Toast.makeText(this, "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show()
+            return false
+        }
+
+        return true
     }
 
 }

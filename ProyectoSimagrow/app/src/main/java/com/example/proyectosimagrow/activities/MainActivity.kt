@@ -1,16 +1,19 @@
 package com.example.proyectosimagrow.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import com.example.proyectosimagrow.R
 import com.example.proyectosimagrow.databinding.ActivityMainBinding
+import com.example.proyectosimagrow.fragments.FormularioIncidenciaFragment
 import com.example.proyectosimagrow.fragments.RecompensasFragment
 import com.example.proyectosimagrow.fragments.IncidenciasFragment
 import com.example.proyectosimagrow.fragments.NoticiasFragment
@@ -41,6 +44,19 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         configurarMenu()
     }
 
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.nav_incidencias -> replaceFragment(IncidenciasFragment())
+            R.id.nav_nueva_incidencia -> replaceFragment(FormularioIncidenciaFragment())
+            R.id.nav_recompensas -> replaceFragment(RecompensasFragment())
+            R.id.nav_noticias -> replaceFragment(NoticiasFragment())
+            R.id.nav_profile -> replaceFragment(NoticiasFragment())
+            R.id.nav_exit -> mostrarDialogoCerrarSesion()
+        }
+        binding.drawerLayout.closeDrawer(GravityCompat.START)
+        return true
+    }
+
     private fun replaceFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, fragment)
@@ -67,19 +83,17 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         binding.navView.setNavigationItemSelectedListener(this)
     }
 
-    override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.nav_incidencias -> replaceFragment(IncidenciasFragment())
-            R.id.nav_nueva_incidencia -> replaceFragment(IncidenciasFragment())
-            R.id.nav_recompensas -> replaceFragment(RecompensasFragment())
-            R.id.nav_noticias -> replaceFragment(NoticiasFragment())
-            R.id.nav_profile -> replaceFragment(NoticiasFragment())
-            R.id.nav_exit -> {
-                Toast.makeText(this, "Sing out", Toast.LENGTH_SHORT).show()
+    private fun mostrarDialogoCerrarSesion() {
+        AlertDialog.Builder(this)
+            .setTitle("Cerrar sesión")
+            .setMessage("¿Seguro que quieres cerrar tu sesión?")
+            .setPositiveButton("Sí") { _, _ ->
+                val intent = Intent(this, LoginActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(intent)
             }
-        }
-        binding.drawerLayout.closeDrawer(GravityCompat.START)
-        return true
+            .setNegativeButton("Cancelar", null)
+            .show()
     }
 
 }

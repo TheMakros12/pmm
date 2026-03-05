@@ -67,6 +67,14 @@
     <string name="txtDrawerMenuItemNuevaIncidendia">Nueva Incidencia</string>
     <string name="txtDrawerMenuItemRecompensas">Recompensas</string>
     <string name="txtDrawerMenuItemNoticias">Noticias</string>
+    <string name="txtTvTextoIncidencia">Rellena tu Incidencia</string>
+    <string name="txtHintTvNombreIncidencia">Título de la Incidencia</string>
+    <string name="txtHelperTextTvNombreIncidencia">Máximo 50 carácteres!!!</string>
+    <string name="txtHintTvDescripciónIncidencia">Descripción de la Incidencia</string>
+    <string name="txtHintTvDescripcionIncidencia">Descripción de la Incidencia</string>
+    <string name="txtHelperTextTvDescripcionIncidencia">Máximo 250 carácteres!!!</string>
+    <string name="txtBtnBorrar">Borrar</string>
+    <string name="txtBtnEnviar">Enviar</string>
     <string-array name="inicidencias_filter">
         <item>Todas</item>
         <item>Resueltas</item>
