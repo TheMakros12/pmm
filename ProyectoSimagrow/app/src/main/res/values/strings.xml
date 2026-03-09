@@ -25,7 +25,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="tvInfoRecompensas">Lista de las Recompensas</string>
     <string name="txtIncidencia">Rellena los datos de la Incidencia</string>
-    <string name="txtHintNombreIncidencia">Nombre de la incidencia</string>
+    <string name="txtHintNombreIncidencia">Nombre de la incidenciaResponse</string>
     <string name="hintDescripcionIncidencia">Escribe los detalles de la Incidencia...</string>
     <string name="btnBorrar">Borrar</string>
     <string name="btnEnviar">Enviar</string>
@@ -75,6 +75,17 @@
     <string name="txtHelperTextTvDescripcionIncidencia">Máximo 250 carácteres!!!</string>
     <string name="txtBtnBorrar">Borrar</string>
     <string name="txtBtnEnviar">Enviar</string>
+    <string name="txtContentDescriptionIvImgAlumno">Imagen del Alumno</string>
+    <string name="txtContentDescriptionIvToken">Imagen del Token</string>
+    <string name="txtTvNumTokens">100</string>
+    <string name="txtTvNumeroTokens">100</string>
+    <string name="tvTextoTokes">"Dispones de 100 "</string>
+    <string name="txtTvTextoNiaAlumno">NIA:</string>
+    <string name="txtTvNiaAlumno">10639258</string>
+    <string name="txtTvTextoNombreAlumno">Nombre:</string>
+    <string name="txtTvNombreAlumno">Marcos Durà Blasco</string>
+    <string name="txtTvTextoCorreoAlumno">Correo:</string>
+    <string name="txtTvCorreoAlumno">mardurbla@alu.edu.gva.es</string>
     <string-array name="inicidencias_filter">
         <item>Todas</item>
         <item>Resueltas</item>

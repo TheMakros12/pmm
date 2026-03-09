@@ -7,10 +7,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.proyectosimagrow.R
 import com.example.proyectosimagrow.databinding.ItemIncidenciaBinding
-import com.example.proyectosimagrow.pojo.Incidencia
+import com.example.proyectosimagrow.data.IncidenciaResponse
 
-class IncidenciaAdapter(private val incidencias: Array<Incidencia>,
-                        private val onItemClick: (Incidencia) -> Unit) : RecyclerView.Adapter<IncidenciaAdapter.ViewHolder>() {
+class IncidenciaAdapter(private var incidencias: List<IncidenciaResponse>,
+                        private val onItemClick: (IncidenciaResponse) -> Unit) : RecyclerView.Adapter<IncidenciaAdapter.ViewHolder>() {
 
     private lateinit var context: Context
 
@@ -44,6 +44,11 @@ class IncidenciaAdapter(private val incidencias: Array<Incidencia>,
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val binding = ItemIncidenciaBinding.bind(view)
+    }
+
+    fun actualizarLista(nuevaLista: List<IncidenciaResponse>) {
+        incidencias = nuevaLista
+        notifyDataSetChanged()
     }
 
 }

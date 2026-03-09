@@ -6,10 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.proyectosimagrow.R
+import com.example.proyectosimagrow.data.RecompensaResponse
 import com.example.proyectosimagrow.databinding.ItemRecompensaBinding
-import com.example.proyectosimagrow.pojo.Recompensa
 
-class RecompensaAdapter(private val recompensas: Array<Recompensa>) : RecyclerView.Adapter<RecompensaAdapter.ViewHolder>() {
+class RecompensaAdapter(private val recompensaResponses: ArrayList<RecompensaResponse>) : RecyclerView.Adapter<RecompensaAdapter.ViewHolder>() {
 
     private lateinit var context: Context
 
@@ -26,7 +26,7 @@ class RecompensaAdapter(private val recompensas: Array<Recompensa>) : RecyclerVi
         holder: ViewHolder,
         position: Int
     ) {
-        val recompensa = recompensas[position]
+        val recompensa = recompensaResponses[position]
         with(holder) {
             binding.tvNombreRecompensa.text = recompensa.nombre
             binding.tvPrecioRecompensa.text = recompensa.precio.toString()
@@ -39,7 +39,7 @@ class RecompensaAdapter(private val recompensas: Array<Recompensa>) : RecyclerVi
         }
     }
 
-    override fun getItemCount(): Int = recompensas.size
+    override fun getItemCount(): Int = recompensaResponses.size
 
     inner class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
         val binding = ItemRecompensaBinding.bind(view)

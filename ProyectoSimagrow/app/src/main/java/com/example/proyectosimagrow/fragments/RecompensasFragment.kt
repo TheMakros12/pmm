@@ -10,7 +10,7 @@ import android.widget.ArrayAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.proyectosimagrow.adapters.RecompensaAdapter
 import com.example.proyectosimagrow.databinding.FragmentRecompensasBinding
-import com.example.proyectosimagrow.pojo.Recompensa
+import kotlin.collections.arrayListOf
 
 class RecompensasFragment : Fragment() {
 
@@ -42,7 +42,7 @@ class RecompensasFragment : Fragment() {
 
     private fun cargarRecyclerView(position: Int) {
         val selected = recompensas[position]
-        adapterFilamento = RecompensaAdapter(arrayOf())
+        adapterFilamento = RecompensaAdapter(arrayListOf())
         binding.recyclerViewFilamentos.adapter = adapterFilamento
         linearLayoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         binding.recyclerViewFilamentos.layoutManager = linearLayoutManager

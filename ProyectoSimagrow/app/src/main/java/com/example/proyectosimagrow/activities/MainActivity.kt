@@ -3,8 +3,7 @@ package com.example.proyectosimagrow.activities
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
-import android.view.View
-import android.widget.Toast
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
@@ -17,14 +16,16 @@ import com.example.proyectosimagrow.fragments.FormularioIncidenciaFragment
 import com.example.proyectosimagrow.fragments.RecompensasFragment
 import com.example.proyectosimagrow.fragments.IncidenciasFragment
 import com.example.proyectosimagrow.fragments.NoticiasFragment
-import com.example.proyectosimagrow.pojo.Recompensa
-import com.example.proyectosimagrow.pojo.User
+import com.example.proyectosimagrow.fragments.PerfilFragment
+import com.example.proyectosimagrow.data.UserResponse
+import com.example.proyectosimagrow.databinding.DrawerHeaderBinding
 import com.google.android.material.navigation.NavigationView
 import com.google.gson.Gson
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var binding: ActivityMainBinding
+    private lateinit var headerBinding: DrawerHeaderBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -34,14 +35,22 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        replaceFragment(IncidenciasFragment())
+
+        val headerView = binding.navView.getHeaderView(0)
+        headerView?.let {
+            headerBinding = DrawerHeaderBinding.bind(it)
+        }
+
         val userRecibido = intent.getStringExtra("user")
-        var user: User? = null
+        var userResponse: UserResponse? = null
 
         if (userRecibido != null) {
-            user = Gson().fromJson(userRecibido, User::class.java)
+            userResponse = Gson().fromJson(userRecibido, UserResponse::class.java)
         }
 
         configurarMenu()
+        cargarDatosHeader(userResponse)
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
@@ -50,7 +59,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_nueva_incidencia -> replaceFragment(FormularioIncidenciaFragment())
             R.id.nav_recompensas -> replaceFragment(RecompensasFragment())
             R.id.nav_noticias -> replaceFragment(NoticiasFragment())
-            R.id.nav_profile -> replaceFragment(NoticiasFragment())
+            R.id.nav_profile -> replaceFragment(PerfilFragment())
             R.id.nav_exit -> mostrarDialogoCerrarSesion()
         }
         binding.drawerLayout.closeDrawer(GravityCompat.START)
@@ -65,9 +74,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     private fun configurarMenu() {
         setSupportActionBar(binding.toolBarInclude.myToolBar)
-
         supportActionBar?.setDisplayShowTitleEnabled(false)
-
         val toggle = ActionBarDrawerToggle(
             this,
             binding.drawerLayout,
@@ -77,10 +84,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         )
 
         binding.drawerLayout.addDrawerListener(toggle)
-
         toggle.syncState()
-
         binding.navView.setNavigationItemSelectedListener(this)
+
+        val headerView = binding.navView.getHeaderView(0)
+        headerView?.findViewById<TextView>(R.id.tvNombreUsuario)
     }
 
     private fun mostrarDialogoCerrarSesion() {
@@ -94,6 +102,16 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
             .setNegativeButton("Cancelar", null)
             .show()
+    }
+
+    private fun cargarDatosHeader(userResponse: UserResponse?) {
+        if (::headerBinding.isInitialized) {
+            userResponse?.let {
+                headerBinding.tvNombreUsuario.text = it.nombre
+                headerBinding.tvCorreoUsuario.text = it.correo
+                headerBinding.tvNumeroTokens.text = it.tokens.toString()
+            }
+        }
     }
 
 }
