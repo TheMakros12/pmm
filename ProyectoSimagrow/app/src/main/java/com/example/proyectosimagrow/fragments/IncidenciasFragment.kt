@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.proyectosimagrow.adapters.IncidenciaAdapter
 import com.example.proyectosimagrow.databinding.FragmentIncidenciasBinding
 import com.example.proyectosimagrow.data.IncidenciaResponse
+import com.example.proyectosimagrow.activities.MainActivity
 
 class IncidenciasFragment : Fragment() {
 
@@ -95,10 +96,19 @@ class IncidenciasFragment : Fragment() {
             .setTitle(titulo)
             .setMessage(mensaje)
             .setPositiveButton("Eliminar") { dialog, _ ->
-                //Borrar la incidencia de la base de datos.
+                IncidenciaResponse.INCIDENCIAResponses.remove(incidenciaResponse)
+                filtrarIncidencias(binding.spinnerEstadosIncidencias.selectedItem.toString())
                 dialog.dismiss()
             }
-            .setNegativeButton("Salir") { dialog, _ ->
+            .setNegativeButton("Editar") { dialog, _ ->
+                val fragment = FormularioIncidenciaFragment().apply {
+                    arguments = Bundle().apply {
+                        putInt("id", incidenciaResponse.id)
+                        putString("nombre", incidenciaResponse.nombre)
+                        putString("descripcion", incidenciaResponse.descripcion)
+                    }
+                }
+                (activity as? MainActivity)?.replaceFragment(fragment)
                 dialog.dismiss()
             }
             .show()

@@ -19,8 +19,10 @@ import com.example.proyectosimagrow.fragments.NoticiasFragment
 import com.example.proyectosimagrow.fragments.PerfilFragment
 import com.example.proyectosimagrow.data.UserResponse
 import com.example.proyectosimagrow.databinding.DrawerHeaderBinding
+import com.example.proyectosimagrow.fragments.ConfiguracionFragment
 import com.google.android.material.navigation.NavigationView
 import com.google.gson.Gson
+import kotlin.jvm.java
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -60,13 +62,14 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_recompensas -> replaceFragment(RecompensasFragment())
             R.id.nav_noticias -> replaceFragment(NoticiasFragment())
             R.id.nav_profile -> replaceFragment(PerfilFragment())
+            R.id.nav_settings -> replaceFragment(ConfiguracionFragment())
             R.id.nav_exit -> mostrarDialogoCerrarSesion()
         }
         binding.drawerLayout.closeDrawer(GravityCompat.START)
         return true
     }
 
-    private fun replaceFragment(fragment: Fragment) {
+    fun replaceFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, fragment)
             .commit()

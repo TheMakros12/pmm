@@ -10,9 +10,11 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import com.example.proyectosimagrow.R
+import com.example.proyectosimagrow.activities.MainActivity
 import com.example.proyectosimagrow.api.RetrofitInstance
 import com.example.proyectosimagrow.data.Espacio
 import com.example.proyectosimagrow.data.EspaciosResponse
+import com.example.proyectosimagrow.data.IncidenciaResponse
 import com.example.proyectosimagrow.databinding.FragmentFormularioIncidenciaBinding
 import kotlinx.coroutines.launch
 
@@ -35,6 +37,16 @@ class FormularioIncidenciaFragment : Fragment() {
         limparCampos()
         cargarSpinnerPlantas()
 
+        val incidentId = arguments?.getInt("id")
+        val incidentNombre = arguments?.getString("nombre")
+        val incidentDescripcion = arguments?.getString("descripcion")
+
+        if (incidentId != null) {
+            binding.etNombreIncidencia.setText(incidentNombre)
+            binding.etDescripcionIncidencia.setText(incidentDescripcion)
+            binding.btnEnviar.text = "Actualizar"
+        }
+
         binding.btnBorrar.setOnClickListener {
             limparCampos()
             Toast.makeText(requireContext(), "Se han borrado los datos!", Toast.LENGTH_SHORT).show()
@@ -42,8 +54,30 @@ class FormularioIncidenciaFragment : Fragment() {
 
         binding.btnEnviar.setOnClickListener {
             if (validarFormulario()) {
-                //Crear la incidencia y enviarla a la bd.
-                Toast.makeText(requireContext(), "IncidenciaResponse enviada correctamente!", Toast.LENGTH_SHORT).show()
+                if (incidentId != null) {
+                    val index = IncidenciaResponse.INCIDENCIAResponses.indexOfFirst { it.id == incidentId }
+                    if (index != -1) {
+                        IncidenciaResponse.INCIDENCIAResponses[index] = IncidenciaResponse(
+                            incidentId,
+                            binding.etNombreIncidencia.text.toString(),
+                            binding.etDescripcionIncidencia.text.toString(),
+                            false // Mantener como no resuelta al editar o podrías pasar el estado también
+                        )
+                        Toast.makeText(requireContext(), "Incidencia actualizada correctamente!", Toast.LENGTH_SHORT).show()
+                        (activity as? MainActivity)?.replaceFragment(IncidenciasFragment())
+                    }
+                } else {
+                    val newId = (IncidenciaResponse.INCIDENCIAResponses.maxOfOrNull { it.id } ?: 0) + 1
+                    val newIncident = IncidenciaResponse(
+                        newId,
+                        binding.etNombreIncidencia.text.toString(),
+                        binding.etDescripcionIncidencia.text.toString(),
+                        false
+                    )
+                    IncidenciaResponse.INCIDENCIAResponses.add(newIncident)
+                    Toast.makeText(requireContext(), "Incidencia enviada correctamente!", Toast.LENGTH_SHORT).show()
+                    (activity as? MainActivity)?.replaceFragment(IncidenciasFragment())
+                }
             }
         }
 
@@ -100,7 +134,7 @@ class FormularioIncidenciaFragment : Fragment() {
 
     private fun cargarSpinnerEspacios(planta: String) {
 
-        lifecycleScope.launch {
+        /*lifecycleScope.launch {
             //Recoger los espacios de las base de datos.
             val listaEspacios = RetrofitInstance.api.getEspacios()
 
@@ -114,7 +148,7 @@ class FormularioIncidenciaFragment : Fragment() {
             val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, espacios)
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             binding.spinnerEspacions.adapter = adapter
-        }
+        }*/
     }
 
 }
